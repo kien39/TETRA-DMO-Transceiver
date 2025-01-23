@@ -1,0 +1,490 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: test_speechCoder
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Not titled yet
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '8000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 12]
+    rotation: 0
+    state: enabled
+- name: audio_source_0
+  id: audio_source
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    device_name: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_outputs: '1'
+    ok_to_block: 'True'
+    samp_rate: samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 188.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/ctn008/tetraDMO-Receiver/codec/audio_src_01GRC.chan
+    type: short
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1000, 172.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/ctn008/tetraDMO-Receiver/codec/audio_src_02.raw
+    type: short
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [624, 268.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/ctn008/tetraDMO-Receiver/codec/audio_src_01.raw
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: short
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 284.0]
+    rotation: 0
+    state: enabled
+- name: blocks_float_to_short_0
+  id: blocks_float_to_short
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '32768'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [440, 188.0]
+    rotation: 0
+    state: disabled
+- name: blocks_multiply_const_vxx_0
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [248, 188.0]
+    rotation: 0
+    state: disabled
+- name: blocks_short_to_float_1
+  id: blocks_short_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [720, 52.0]
+    rotation: 0
+    state: enabled
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: short
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [288, 308.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\nsync block, 480 samples in, 480\
+      \ samples out\n\"\"\"\n\nimport numpy as np\nfrom gnuradio import gr\nfrom ctypes\
+      \ import *\n\nIN_STEP = 480\nOUT_STEP = 432\nL_FRAME     = 240\nSERIAL_SIZE\
+      \ = 138\nANA_SIZE    =  23\n\nclass SrcChCoder(gr.basic_block):\n    SrcCoderlib\
+      \ = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codec/tetraSrcCoderLib.so')\n\
+      \n    # C-type corresponding to numpy array \n    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16,\
+      \ \n                                          ndim=1,\n                    \
+      \                      flags=\"C\")\n    SrcCoderlib.Pre_Process.argtypes =\
+      \ [ND_POINTER, c_int16]\n    SrcCoderlib.Prm2bits_Tetra.argtypes = [ND_POINTER,\
+      \ ND_POINTER]\n    SrcCoderlib.Coder_Tetra.argtypes    = [ND_POINTER, ND_POINTER]\n\
+      \    SrcCoderlib.Post_Process.argtypes   = [ND_POINTER, c_int16]\n\n    SrcCoderlib.Copy_Speech_Frame.argtypes\
+      \   = [ND_POINTER]\n    def Copy_Speech_Frame(speech_frame):\n        SrcChCoder.SrcCoderlib.Copy_Speech_Frame(speech_frame)\n\
+      \n    def Init_Pre_Process():\n        SrcChCoder.SrcCoderlib.Init_Pre_Process()\n\
+      \n    def Init_Coder_Tetra():\n        SrcChCoder.SrcCoderlib.Init_Coder_Tetra()\n\
+      \        \n    def Pre_Process(new_speech, L_frame):\n        SrcChCoder.SrcCoderlib.Pre_Process(new_speech,\
+      \ L_frame)\n\n    def Prm2bits_Tetra(ana, serial):\n        SrcChCoder.SrcCoderlib.Prm2bits_Tetra(ana,\
+      \ serial)\n\n    def Coder_Tetra(ana, syn):\n        SrcChCoder.SrcCoderlib.Coder_Tetra(ana,\
+      \ syn)\n\n    def Post_Process(synth, L_frame):    \n        SrcChCoder.SrcCoderlib.Post_Process(synth,\
+      \ L_frame)\n\n    ChCoderlib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codec/tetraChCoderLib.so')\n\
+      \n    ChCoderlib.Channel_Encoding.argtypes    = [c_int16, c_int16, ND_POINTER,\
+      \ ND_POINTER]\n    ChCoderlib.Interleaving_Signalling.argtypes = [ND_POINTER,\
+      \ ND_POINTER]\n    ChCoderlib.Interleaving_Signalling.restype  = c_int16\n \
+      \   ChCoderlib.Interleaving_Speech.argtypes     = [ND_POINTER, ND_POINTER]\n\
+      \    ChCoderlib.Interleaving_Speech.restype      = c_int16\n\n    def Channel_Encoding(first_pass,\
+      \ FS_Flag, Vocod_array, Coded_array):\n        SrcChCoder.ChCoderlib.Channel_Encoding(first_pass,FS_Flag,Vocod_array,Coded_array)\n\
+      \n    def Interleaving_Signalling( Input_Frame, Output_frame ):\n        return\
+      \ SrcChCoder.ChCoderlib.Interleaving_Signalling( Input_Frame, Output_frame )\n\
+      \n    def Interleaving_Speech( Input_Frame, Output_frame ):\n        return\
+      \ SrcChCoder.ChCoderlib.Interleaving_Speech( Input_Frame, Output_frame )\n \
+      \   \n    def __init__(self):\n        gr.basic_block.__init__(\n          \
+      \  self,\n            name='Tetra Voice Coder',   # will show up in GRC\n  \
+      \          in_sig=[np.int16],\n            out_sig=[np.int16]\n        )\n \
+      \       \n        self.syn    = np.array([0]*L_FRAME,     dtype = 'int16')\n\
+      \        self.ana    = np.array([0]*ANA_SIZE,    dtype = 'int16')    #/* Analysis\
+      \ parameters.   */\n        self.serial = np.array([0]*SERIAL_SIZE, dtype =\
+      \ 'int16') #/* Serial stream.         */\n\n        self.Loop_counter = 0\n\
+      \        self.first_pass = True\n        self.FS_Flag = False\n        self.Vocod_array\
+      \         = np.array([0]*274, dtype = 'int16')\n        self.Coded_array   \
+      \          = np.array([0]*432, dtype = 'int16')\n        self.Interleaved_coded_array\
+      \ = np.array([0]*432, dtype = 'int16')\n\n        SrcChCoder.Init_Pre_Process()\n\
+      \        SrcChCoder.Init_Coder_Tetra()\n     \n    def general_work(self, input_items,\
+      \ output_items):\n        in_index = 0\n        out_index = 0\n\n        frame\
+      \ = 0\n\n        while (len(input_items[0]) >= in_index + IN_STEP) and (len(output_items[0])\
+      \ >= out_index + OUT_STEP) :\n            new_speech = np.array(input_items[0][in_index:in_index+480])\n\
+      \            # process 1st 240 samples\n            SrcChCoder.Pre_Process(new_speech,\
+      \ L_FRAME)\n            SrcChCoder.Copy_Speech_Frame(new_speech)    # copy to\
+      \ c global 'new_speech' pointer\n            SrcChCoder.Coder_Tetra(self.ana,\
+      \ self.syn)\n            SrcChCoder.Post_Process(self.syn, L_FRAME)\n      \
+      \      SrcChCoder.Prm2bits_Tetra(self.ana, self.serial)\n            self.Vocod_array[\
+      \  0:137] = self.serial[1:SERIAL_SIZE]\n            \n            # process\
+      \ next 240 samples\n            SrcChCoder.Pre_Process(new_speech[240:], L_FRAME)\n\
+      \            SrcChCoder.Copy_Speech_Frame(new_speech[240:])    # copy to c global\
+      \ 'new_speech' pointer\n            SrcChCoder.Coder_Tetra(self.ana, self.syn)\n\
+      \            SrcChCoder.Post_Process(self.syn, L_FRAME)\n            SrcChCoder.Prm2bits_Tetra(self.ana,\
+      \ self.serial)\n            self.Vocod_array[137:274] = self.serial[1:SERIAL_SIZE]\n\
+      \n            SrcChCoder.Channel_Encoding(self.first_pass, self.FS_Flag, self.Vocod_array,\
+      \ self.Coded_array)\n            self.first_pass = False\n\n            if (not\
+      \ self.FS_Flag):\n                SrcChCoder.Interleaving_Speech(self.Coded_array,\
+      \ self.Interleaved_coded_array)\n            else:\n                SrcChCoder.Interleaving_Signalling(\
+      \ self.Coded_array[216:], self.Interleaved_coded_array[216:] )\n           \
+      \     self.Interleaved_coded_array[0:216] = self.Coded_array[0:216]\n      \
+      \          print(\"FS_Flag ON\")\n                    \n            self.Loop_counter\
+      \ += 1\n\n            output_items[0][out_index:out_index+432] = self.Interleaved_coded_array\n\
+      \n            in_index += IN_STEP\n            out_index += OUT_STEP\n     \
+      \       \n        self.consume(0, in_index)\n        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Tetra Voice Coder', 'SrcChCoder', [], [('0', 'short', 1)], [('0',
+      'short', 1)], '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [696, 192.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: Floating Number
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [384, 76.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_time_sink_x_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: Short Number
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '10000'
+    ymin: '-10000'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [992, 28.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [audio_source_0, '0', blocks_multiply_const_vxx_0, '0']
+- [audio_source_0, '0', qtgui_time_sink_x_0, '0']
+- [blocks_file_source_0, '0', blocks_throttle2_0, '0']
+- [blocks_float_to_short_0, '0', blocks_file_sink_0_0, '0']
+- [blocks_float_to_short_0, '0', blocks_short_to_float_1, '0']
+- [blocks_float_to_short_0, '0', epy_block_0_0, '0']
+- [blocks_multiply_const_vxx_0, '0', blocks_float_to_short_0, '0']
+- [blocks_short_to_float_1, '0', qtgui_time_sink_x_1, '0']
+- [blocks_throttle2_0, '0', blocks_short_to_float_1, '0']
+- [blocks_throttle2_0, '0', epy_block_0_0, '0']
+- [epy_block_0_0, '0', blocks_file_sink_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0

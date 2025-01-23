@@ -1,0 +1,1847 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: test_dmo_Burst_SYNC
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: test_dmo_Burst_SYNC
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: arity
+  id: variable
+  parameters:
+    comment: ''
+    value: '4'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [560, 12]
+    rotation: 0
+    state: enabled
+- name: audio_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '8000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1224, 12.0]
+    rotation: 0
+    state: enabled
+- name: channel_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '36000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [288, 12]
+    rotation: 0
+    state: enabled
+- name: constel
+  id: variable_constellation
+  parameters:
+    comment: ''
+    const_points: '[1-1j, 1+1j, -1-1j, 1-1j]'
+    dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    npwr: '1.0'
+    precision: '8'
+    rot_sym: '4'
+    soft_dec_lut: '''auto'''
+    sym_map: '[0, 1, 3, 2]'
+    type: dqpsk
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 476.0]
+    rotation: 0
+    state: enabled
+- name: decim
+  id: variable
+  parameters:
+    comment: ''
+    value: '16'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 12]
+    rotation: 0
+    state: enabled
+- name: freq_offset_khz
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    entry_signal: editingFinished
+    gui_hint: '[1,1]'
+    label: Baseband offset [kHz]
+    type: real
+    value: '45'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [456, 76.0]
+    rotation: 0
+    state: enabled
+- name: frequency_mhz
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    entry_signal: editingFinished
+    gui_hint: '[1,0]'
+    label: Frequency [MHz]
+    type: real
+    value: '390.000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [312, 76.0]
+    rotation: 0
+    state: enabled
+- name: nfilts
+  id: variable
+  parameters:
+    comment: ''
+    value: '32'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 12]
+    rotation: 0
+    state: enabled
+- name: ppm_corr
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: '[2,0,1,2]'
+    label: PPM correction
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: int
+    start: '-20'
+    step: '1'
+    stop: '15'
+    value: '0'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [176, 76.0]
+    rotation: 0
+    state: enabled
+- name: rrc_taps
+  id: variable
+  parameters:
+    comment: ''
+    value: firdes.root_raised_cosine(nfilts, nfilts, 1.0/float(sps), 0.35, 11*sps*nfilts)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [640, 12]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '1280000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: skip_input
+  id: variable
+  parameters:
+    comment: ''
+    value: int(2040)*0
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1008, 12.0]
+    rotation: 0
+    state: enabled
+- name: skip_symbol
+  id: variable
+  parameters:
+    comment: ''
+    value: 1020*0
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [896, 12.0]
+    rotation: 0
+    state: enabled
+- name: sps
+  id: variable
+  parameters:
+    comment: ''
+    value: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [480, 12]
+    rotation: 0
+    state: enabled
+- name: variable_adaptive_algorithm_0
+  id: variable_adaptive_algorithm
+  parameters:
+    comment: ''
+    cons: constel
+    delta: '10.0'
+    ffactor: '0.99'
+    modulus: '1'
+    step_size: 10e-3
+    type: cma
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [336, 476.0]
+    rotation: 0
+    state: enabled
+- name: view_symbols
+  id: variable
+  parameters:
+    comment: ''
+    value: '255'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1104, 12.0]
+    rotation: 0
+    state: enabled
+- name: analog_feedforward_agc_cc_0
+  id: analog_feedforward_agc_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_samples: '8'
+    reference: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [664, 76.0]
+    rotation: 0
+    state: disabled
+- name: audio_sink_0
+  id: audio_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    device_name: ''
+    num_inputs: '1'
+    ok_to_block: 'True'
+    samp_rate: audio_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1224, 628.0]
+    rotation: 0
+    state: disabled
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1208, 508.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/ctn008/tetraDMO-Receiver/codec/tetraDMO_s36kBit_r1.uint8
+    type: byte
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1200, 388.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_sink_1
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/ctn008/tetraDMO-Receiver/codec/tetraDMO_s36kIQ_r1.complex64
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1200, 212.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/ctn008/0.Pluto/pluto_04_analysis/RxDMO_pluto_to_s36kBit_04.uint8
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'True'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [192, 724.0]
+    rotation: 0
+    state: disabled
+- name: blocks_multiply_const_vxx_0_0
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '4'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1104, 692.0]
+    rotation: 0
+    state: disabled
+- name: blocks_null_sink_0
+  id: blocks_null_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_sink: '[[0,],]'
+    comment: ''
+    num_inputs: '1'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1216, 328.0]
+    rotation: 0
+    state: enabled
+- name: blocks_short_to_float_0_0
+  id: blocks_short_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '32768'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [992, 628.0]
+    rotation: 0
+    state: disabled
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: channel_rate
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [776, 516.0]
+    rotation: 0
+    state: disabled
+- name: blocks_unpack_k_bits_bb_0
+  id: blocks_unpack_k_bits_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    k: constel.bits_per_symbol()
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [968, 404.0]
+    rotation: 0
+    state: enabled
+- name: digital_constellation_decoder_cb_0
+  id: digital_constellation_decoder_cb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    constellation: constel
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [576, 404.0]
+    rotation: 0
+    state: enabled
+- name: digital_diff_phasor_cc_0
+  id: digital_diff_phasor_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [568, 312.0]
+    rotation: 0
+    state: enabled
+- name: digital_fll_band_edge_cc_0
+  id: digital_fll_band_edge_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    filter_size: '45'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    rolloff: '0.35'
+    samps_per_sym: sps
+    type: cc
+    w: cmath.pi/100.0
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [888, 144.0]
+    rotation: 0
+    state: disabled
+- name: digital_linear_equalizer_0
+  id: digital_linear_equalizer
+  parameters:
+    adapt_after_training: 'True'
+    affinity: ''
+    alg: variable_adaptive_algorithm_0
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_taps: '15'
+    sps: sps
+    training_sequence: '[ ]'
+    training_start_tag: corr_est
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [328, 368.0]
+    rotation: 0
+    state: enabled
+- name: digital_map_bb_0
+  id: digital_map_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    map: constel.pre_diff_code()
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [816, 404.0]
+    rotation: 0
+    state: enabled
+- name: digital_pfb_clock_sync_xxx_0
+  id: digital_pfb_clock_sync_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    filter_size: nfilts
+    init_phase: nfilts/2
+    loop_bw: 2*cmath.pi/100.0
+    max_dev: '1.5'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    osps: sps
+    sps: sps
+    taps: rrc_taps
+    type: ccf
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [32, 396.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\nsync block, 480 samples in, 480\
+      \ samples out\n\"\"\"\n\nimport numpy as np\nfrom gnuradio import gr\nfrom ctypes\
+      \ import *\n\n\nIN_STEP = 480\nOUT_STEP = 480\n\nclass tetraChDecoder(gr.sync_block):\n\
+      \    lib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codec/tetraChDecoderLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
+      \                          ndim=1,\n                                       \
+      \   flags=\"C\")\n    lib.Channel_Decoding.argtypes = [c_int16, c_int16, ND_POINTER,\
+      \ ND_POINTER]\n    lib.Channel_Decoding.restype = c_int16\n    lib.Desinterleaving_Signalling.argtypes\
+      \ = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Signalling.restype = c_int16\n\
+      \    lib.Desinterleaving_Speech.argtypes = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Speech.restype\
+      \ = c_int16\n\n\n    def Channel_Decoding(first_pass, Frame_Stealing, Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Channel_Decoding(first_pass,\
+      \ Frame_Stealing, Input_Frame, Output_Frame)\n        return res\n\n    def\
+      \ Desinterleaving_Signalling(Input_Frame, Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Signalling(Input_Frame,\
+      \ Output_Frame)\n        return res\n\n    def Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame)\n        return res\n    \n    def __init__(self):\n       \
+      \ gr.sync_block.__init__(\n            self,\n            name='Tetra ACELP\\\
+      nChannel Decoder',   # will show up in GRC\n            in_sig=[np.uint8],\n\
+      \            out_sig=[np.int16]\n        )\n        self.Loop_counter = 0\n\
+      \        self.first_pass = True\n        self.Frame_stealing = False\n     \
+      \   self.bfi1 = 0\n        self.bfi2 = 0\n        self.Reordered_array     \
+      \    = np.array([0]*286, dtype = 'int16')\n        self.Interleaved_coded_array\
+      \ = np.array([0]*432, dtype = 'int16')\n        self.Coded_array           \
+      \  = np.array([0]*432, dtype = 'int16')\n     \n    def work(self, input_items,\
+      \ output_items):\n        in_index = 0\n        out_index = 0\n\n        while\
+      \ (len(input_items[0]) >= in_index + IN_STEP) and (len(output_items[0]) >= out_index\
+      \ + OUT_STEP) :\n\n            for i in range(432):            # \"0\" = 127,\
+      \ \"1\" = -127\n                self.Interleaved_coded_array[i] = 127 if input_items[0][in_index+i]\
+      \ == 0 else -127\n                                                        \n\
+      \            self.Frame_stealing = input_items[0][in_index + IN_STEP - 1]\n\n\
+      \            if self.Frame_stealing :\n                tetraChDecoder.Desinterleaving_Signalling(self.Interleaved_coded_array[216:],\
+      \ self.Coded_array[216:])\n                self.Coded_array[:216] = self.Interleaved_coded_array[:216]\n\
+      \            else:\n                tetraChDecoder.Desinterleaving_Speech(self.Interleaved_coded_array,\
+      \ self.Coded_array)\n\n            self.bfi1 = self.Frame_stealing\n       \
+      \     if self.bfi1:\n                print(f\"Frame Nb %d was stolen\" %(self.Loop_counter+1))\n\
+      \n            bfi2 = tetraChDecoder.Channel_Decoding(self.first_pass, self.Frame_stealing,\
+      \ self.Coded_array, self.Reordered_array)\n            self.first_pass = False\n\
+      \n            if (self.Frame_stealing==0) and (self.bfi2==1):\n            \
+      \    self.bfi1 = 1\n\n            self.Loop_counter += 1\n            if self.bfi2:\n\
+      \                print(f\"Frame Nb %d Bfi active\" %(self.Loop_counter+1))\n\
+      \n            output_items[0][out_index] = self.bfi1\n            output_items[0][out_index+1:out_index+138]\
+      \ = self.Reordered_array[0:137]\n            output_items[0][out_index+(OUT_STEP//2)]\
+      \ = self.bfi2\n            output_items[0][out_index+(OUT_STEP//2)+1:out_index+(OUT_STEP//2)+138]\
+      \ = self.Reordered_array[137:274]\n\n            if (not self.bfi1) and (not\
+      \ self.bfi2):\n                print(self.Loop_counter, \"  full speech frame\
+      \ decoded ok\")\n\n            in_index += IN_STEP\n            out_index +=\
+      \ OUT_STEP\n            \n        #self.consume(0, in_index)\n        return\
+      \ out_index\n\n\"\"\"\nFRAME_LEN = 480\n\nclass tetraChDecoder(gr.sync_block):\n\
+      \    lib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codec/tetraChDecoderLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
+      \                          ndim=1,\n                                       \
+      \   flags=\"C\")\n    lib.Channel_Decoding.argtypes = [c_int16, c_int16, ND_POINTER,\
+      \ ND_POINTER]\n    lib.Channel_Decoding.restype = c_int16\n    lib.Desinterleaving_Signalling.argtypes\
+      \ = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Signalling.restype = c_int16\n\
+      \    lib.Desinterleaving_Speech.argtypes = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Speech.restype\
+      \ = c_int16\n\n\n    def Channel_Decoding(first_pass, Frame_Stealing, Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Channel_Decoding(first_pass,\
+      \ Frame_Stealing, Input_Frame, Output_Frame)\n        return res\n\n    def\
+      \ Desinterleaving_Signalling(Input_Frame, Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Signalling(Input_Frame,\
+      \ Output_Frame)\n        return res\n\n    def Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame)\n        return res\n    \n    def __init__(self):\n       \
+      \ gr.sync_block.__init__(\n            self,\n            name='Tetra ACELP\\\
+      nChannel Decoder',   # will show up in GRC\n            in_sig=[np.uint8],\n\
+      \            out_sig=[np.int16]\n        )\n        self.Loop_counter = 0\n\
+      \        self.first_pass = True\n        self.Frame_stealing = False\n     \
+      \   self.bfi1 = 0\n        self.bfi2 = 0\n        self.Reordered_array     \
+      \    = np.array([0]*286, dtype = 'int16')\n        self.Interleaved_coded_array\
+      \ = np.array([0]*432, dtype = 'int16')\n        self.Coded_array           \
+      \  = np.array([0]*432, dtype = 'int16')\n     \n    def work(self, input_items,\
+      \ output_items):\n\n        out_index = 0\n\n        while len (output_items[0])\
+      \ >= out_index + FRAME_LEN :\n            for i in range(432):            #\
+      \ \"0\" = 127, \"1\" = -127\n                self.Interleaved_coded_array[i]\
+      \ = 127 if input_items[0][out_index+i] == '0' else -127\n\n            self.Frame_stealing\
+      \ = input_items[0][out_index+FRAME_LEN-1]\n\n            if self.Frame_stealing\
+      \ :\n                tetraChDecoder.Desinterleaving_Signalling(self.Interleaved_coded_array[216:],\
+      \ self.Coded_array[216:])\n                self.Coded_array[:216] = self.Interleaved_coded_array[:216]\n\
+      \            else:\n                tetraChDecoder.Desinterleaving_Speech(self.Interleaved_coded_array,\
+      \ self.Coded_array)\n\n            self.bfi1 = self.Frame_stealing\n       \
+      \     if self.bfi1:\n                print(\"Frame Nb %ld was stolen\\n\", self.Loop_counter+1);\n\
+      \n            bfi2 = tetraChDecoder.Channel_Decoding(self.first_pass, self.Frame_stealing,\
+      \ self.Coded_array, self.Reordered_array)\n            first_pass = False\n\n\
+      \            if (self.Frame_stealing==0) and (self.bfi2==1):\n             \
+      \   self.bfi1 = 1\n\n            self.Loop_counter += 1\n\n            for i\
+      \ in range(137):\n                output_items[0][out_index+i+1] = self.Reordered_array[i]\n\
+      \                output_items[0][out_index+i+1+137+1] = self.Reordered_array[i+137]\n\
+      \n            output_items[0][out_index+i] = self.bfi1\n            output_items[0][out_index+i+1+137]\
+      \ = self.bfi2\n            if (not self.bfi1) and (not self.bfi2):\n       \
+      \         print(self.Loop_counter, \"  full speech frame decoded ok\")\n   \
+      \         out_index += FRAME_LEN\n\n        return out_index\n\"\"\"\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Tetra ACELP\nChannel Decoder', 'tetraChDecoder', [], [('0', 'byte',
+      1)], [('0', 'short', 1)], '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [616, 628.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_0_0_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\ndmoBurstSync\n- input is a stream\
+      \ of demodulated bits (each bit in one byte)\n- output is a stream of consecutive\
+      \ 510 bits (bytes) after burst synchronisation is detected.\n- consider to pass\
+      \ tag along the data stream to indicate the type of burst ? Alternatively, can\
+      \ use 34 guard bit as a burst header to fill in the necessary info or even use\
+      \ extra bytes (on top of 510 bytes) as burst header. Using burst header has\
+      \ the advantage of these headers can be stored together with data streams in\
+      \ output files, maybe more convenient & easy for debug.\n\"\"\"\n\nimport numpy\
+      \ as np\nfrom gnuradio import gr\n\nDSB = 1\nDNB = 2\nDNB_SF = 3\nINACTIVE =\
+      \ 0\nIN_STEP = 510\nOUT_STEP = 512\n\nclass dmoBurstSync(gr.basic_block):  #\
+      \ other base classes are basic_block, decim_block, interp_block\n\n    NORMAL_TRAINING_SEQ_1\
+      \       = (1,1,0,1,0,0,0,0,1,1,1,0,1,0,0,1,1,1,0,1,0,0)  # n1..n22\n    NORMAL_TRAINING_SEQ_2\
+      \       = (0,1,1,1,1,0,1,0,0,1,0,0,0,0,1,1,0,1,1,1,1,0)  # p1..p22\n    NORMAL_TRAINING_SEQ_3_BEGIN\
+      \ = (0,0,0,1,1,0,1,0,1,1,0,1)                      # q11..q22\n    NORMAL_TRAINING_SEQ_3_END\
+      \   = (1,0,1,1,0,1,1,1,0,0)                          # q1..q10\n\n    SYNC_TRAINING_SEQ\
+      \ = (1,1,0,0,0,0,0,1,1,0,0,1,1,1,0,0,1,1,1,0,1,0,0,1,1,1,0,0,0,0,0,1,1,0,0,1,1,1)\
+      \  # y1..y38\n\n    PREAMBLE_P1  =   (0,0,1,1,0,0,1,0,0,0,1,1)    # j1..j12\n\
+      \    PREAMBLE_P2  =   (1,0,0,1,1,0,1,0,1,0,0,1)    # k1..k12\n    PREAMBLE_P3\
+      \  =   (0,0,0,1,0,1,0,0,0,1,1,1)    # I1..I12\n\n    BURST_DETECT_THRESHOLD\
+      \ = 6;\n\n    def patternAtPositionScore(self, bitstream, pattern, position):\n\
+      \        patternScore = 0\n        for i in range(len(pattern)):\n         \
+      \   if bitstream[position+i] != pattern[i]:\n                patternScore +=\
+      \ 1\n        return patternScore\n\n    def isValidBurst(self, bitstream, index,\
+      \ pointer):\n        \n        score_preamble_p1 = self.patternAtPositionScore(bitstream,\
+      \ dmoBurstSync.PREAMBLE_P1, index + pointer+34)   # don't count 34 guard bits,\
+      \ starts @ zero\n        score_preamble_p2 = self.patternAtPositionScore(bitstream,\
+      \ dmoBurstSync.PREAMBLE_P2, index + pointer+34)   # don't count 34 guard bits\n\
+      \        score_preamble_p3 = self.patternAtPositionScore(bitstream, dmoBurstSync.PREAMBLE_P3,\
+      \ index + pointer+34)   # don't count 34 guard bits\n\n        scoreSync   \
+      \ = self.patternAtPositionScore(bitstream, dmoBurstSync.SYNC_TRAINING_SEQ, \
+      \    214 + index + pointer+34) # STS position DMO burst\n        scoreNormal1\
+      \ = self.patternAtPositionScore(bitstream, dmoBurstSync.NORMAL_TRAINING_SEQ_1,\
+      \ 230 + index + pointer+34) # NTS1 position DMO burst\n        scoreNormal2\
+      \ = self.patternAtPositionScore(bitstream, dmoBurstSync.NORMAL_TRAINING_SEQ_2,\
+      \ 230 + index + pointer+34) # NTS2 position DMO burst\n     \n        scoreNormal1\
+      \ = int((scoreNormal1*38)/22)                                       # multifly\
+      \ with 1.5 to be comparable with STS\n        scoreNormal2 = int((scoreNormal2*38)/22)\
+      \ \n\n        scoreNormal1 += score_preamble_p1                            \
+      \                  # combine bit errors of preamble & training sequences\n \
+      \       scoreNormal2 += score_preamble_p2 \n        scoreSync    += score_preamble_p3\
+      \ \n\n        # soft decision to detect burst: bit errors in preamble & training\
+      \ sequence less than 6\n        scoreMin = scoreSync                       \
+      \                            # if same score, Sync Burst is chosen\n       \
+      \ burstType = DSB         \n\n        if (scoreNormal1 < scoreMin):\n      \
+      \      scoreMin  = scoreNormal1 \n            burstType = DNB \n        if (scoreNormal2\
+      \ < scoreMin):\n            scoreMin  = scoreNormal2 \n            burstType\
+      \ = DNB_SF \n\n        if (scoreMin > dmoBurstSync.BURST_DETECT_THRESHOLD):\
+      \                  # frame (burst) is matched and can be processed\n       \
+      \     burstType = INACTIVE\n            \n        return (burstType, scoreMin)\n\
+      \n    def __init__(self, dmoMode = True): \n        gr.basic_block.__init__(\n\
+      \            self,\n            name='dmoBurst\\nDetect-Sync',     # will show\
+      \ up in GRC\n            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n\
+      \        )\n        self.dmoMode = dmoMode       # False means tmoMode\n   \
+      \     self.burstActive = False\n        self.burstSynced = False\n        self.prevBurstDetected\
+      \ = False\n        self.firstDetect = 0\n        self.in_pointer = 0       \
+      \ \n\n    def general_work(self, input_items, output_items):\n\n        in_index\
+      \ = 0\n        out_index = 0\n\n        while (len(input_items[0]) >= in_index\
+      \ + IN_STEP) and (len(output_items[0]) >= out_index + OUT_STEP):\n         \
+      \   # only process the code below if more than 510 input data samples\n\n  \
+      \          if (not self.burstSynced):\n                for i in range(len(input_items[0])\
+      \ - in_index - IN_STEP): \n                    (burstType, scoreMin) = self.isValidBurst(input_items[0],\
+      \ in_index, i)\n\n                    if (burstType == DSB):\n             \
+      \           if self.prevBurstDetected == True:\n                           \
+      \ if (self.in_pointer - self.firstDetect) == 510: \n                       \
+      \         self.burstSynced = True\n                                #DEBUG\n\
+      \                                print(\"first burst detected at: \", self.firstDetect)\n\
+      \                                break   # break for loop if validBurst found\n\
+      \                            else:\n                                self.prevBurstDetected\
+      \ = True\n                                self.firstDetect = self.in_pointer\n\
+      \                        else:\n                            self.prevBurstDetected\
+      \ = True\n                            self.firstDetect = self.in_pointer\n \
+      \                           \n                    self.in_pointer += 1\n   \
+      \             in_index += i\n            else:          \n                (burstType,\
+      \ scoreMin) = self.isValidBurst(input_items[0], in_index, 0)\n             \
+      \   if (burstType):\n                    self.burstActive = True\n         \
+      \       else:\n                    self.burstActive = False\n\n            \
+      \    if burstType :\n                    output_items[0][out_index:out_index+IN_STEP]\
+      \ = input_items[0][in_index:in_index+IN_STEP]\n                else:\n     \
+      \               output_items[0][out_index:out_index+IN_STEP] = np.array([0]*IN_STEP,\
+      \ dtype = 'uint8')\n\n                output_items[0][out_index+IN_STEP]   =\
+      \ burstType\n                output_items[0][out_index+IN_STEP+1] = scoreMin\n\
+      \n                in_index += IN_STEP\n                self.in_pointer += IN_STEP\n\
+      \                out_index += OUT_STEP\n        self.consume(0, in_index) #consume\
+      \ port 0 input\n        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: (510+2) burst
+    dmoMode: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('dmoBurst\nDetect-Sync', 'dmoBurstSync', [('dmoMode', 'True')], [('0',
+      'byte', 1)], [('0', 'byte', 1)], '', ['dmoMode'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [216, 620.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_0_2
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nIN_STEP     = 240\nOUT_STEP\
+      \    = 240\n\nL_FRAME     = 240\nSERIAL_SIZE = 138\nPRM_SIZE    = 24\n\nsynth\
+      \ = np.array([0]*L_FRAME, dtype ='int16')      #/* Synthesis              */\n\
+      parm  = np.array([0]*PRM_SIZE, dtype ='int16')     #/* Synthesis parameters\
+      \   */\nserial= np.array([0]*SERIAL_SIZE, dtype ='int16')  #/* Serial stream\
+      \          */\n\nclass tetraSpDecoder(gr.sync_block):\n    lib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codec/tetraSpDecoderLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
+      \                          ndim=1,\n                                       \
+      \   flags=\"C\")\n    lib.Bits2prm_Tetra.argtypes = [ND_POINTER, ND_POINTER]\n\
+      \    lib.Decod_Tetra.argtypes    = [ND_POINTER, ND_POINTER]\n    lib.Post_Process.argtypes\
+      \   = [ND_POINTER, c_int16]\n\n    def Init_Decod_Tetra():\n        tetraSpDecoder.lib.Init_Decod_Tetra()\n\
+      \        \n    def Bits2prm_Tetra(serial, parm):\n        tetraSpDecoder.lib.Bits2prm_Tetra(serial,\
+      \ parm)\n\n    def Decod_Tetra(parm, synth):\n        tetraSpDecoder.lib.Decod_Tetra(parm,\
+      \ synth)\n\n    def Post_Process(synth, L_frame):    \n        tetraSpDecoder.lib.Post_Process(synth,\
+      \ L_frame)\n\n    \n    def __init__(self):\n        gr.sync_block.__init__(\n\
+      \            self,\n            name='Tetra ACELP\\nSpeech Decoder',   # will\
+      \ show up in GRC\n            in_sig=[np.int16],\n            out_sig=[np.int16]\n\
+      \        )\n        self.frame = 0\n\n    def work(self, input_items, output_items):\n\
+      \        cod_ptr = 0\n        raw_ptr = 0\n\n        tetraSpDecoder.Init_Decod_Tetra()\n\
+      \        while (cod_ptr + IN_STEP <= len(input_items[0])) and (raw_ptr + OUT_STEP\
+      \ <= len(output_items[0])):\n\n            for j in range (SERIAL_SIZE):\n \
+      \               serial[j] = input_items[0][cod_ptr+j]\n                \n  \
+      \          cod_ptr += IN_STEP\n            self.frame +=1\n            \n  \
+      \          print(\"frame= %d\" %self.frame)\n            tetraSpDecoder.Bits2prm_Tetra(serial,\
+      \ parm)\n            tetraSpDecoder.Decod_Tetra(parm, synth)\n            tetraSpDecoder.Post_Process(synth,\
+      \ L_FRAME)\n\n            for j in range (L_FRAME):\n                output_items[0][raw_ptr+j]\
+      \ = synth[j]\n            \n            raw_ptr += OUT_STEP\n        #self.consume(0,\
+      \ cod_ptr)\n        return raw_ptr\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Tetra ACELP\nSpeech Decoder', 'tetraSpDecoder', [], [('0', 'short',
+      1)], [('0', 'short', 1)], '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [816, 628.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_1
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nDSB = 1\nDNB = 2\nDNB_SF =\
+      \ 3\nINACTIVE = 0\nBURST_LEN = 510\nIN_STEP = 512\nOUT_STEP = 480\n\nclass tetraTime():\n\
+      \    def __init__(self):\n        self.tn = 1\n        self.fn = 1\n       \
+      \ self.mn = 1\n    def timeIncrease(self):\n        self.tn += 1\n        if\
+      \ self.tn > 4:\n            self.tn -= 4\n            self.fn += 1\n       \
+      \ if self.fn > 18:\n            self.fn -= 18\n            self.mn += 1\n  \
+      \      \nclass tetraCell():\n    def __init__(self):\n        self.m_mcc   \
+      \            = 0\n        self.m_mnc               = 0\n        self.m_colorCode\
+      \         = 0\n        self.m_scramblingCode    = 0\n        self.m_locationArea\
+      \      = 0\n\n        self.m_downlinkFrequency = 0\n        self.m_uplinkFrequency\
+      \   = 0\n\n        self.m_cellInformationsAcquired = False\n        \n    def\
+      \ updateScramblingCode(self, sourceAddress, mnIdentity): \n        self.m_mcc\
+      \ = mnIdentity >> 14\n        self.m_mnc = mnIdentity & 0x3ff\n\n        self.m_scramblingCode\
+      \ = sourceAddress | ((mnIdentity & 0x003f) << 24)\n        self.m_scramblingCode\
+      \ = (self.m_scramblingCode << 2) | 0x0003\n\n        self.m_cellInformationsAcquired\
+      \ = True\n\n    def getScramblingCode(self):\n        return self.m_scramblingCode\n\
+      \nclass lowerMac(gr.basic_block):\n    # C-type corresponding to numpy array\
+      \ \n    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, ndim=1,flags=\"\
+      C\")\n    lib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codingLib.so')\
+      \ # class level loading lib\n    lib.descramble_raw.argtypes = [ND_POINTER,\
+      \ c_size_t, ND_POINTER, c_size_t, c_size_t]\n    lib.descramble_raw.restype\
+      \ = c_size_t\n    lib.deinterleave_raw.argtypes = [ND_POINTER, c_size_t, ND_POINTER,\
+      \ c_size_t, c_size_t]\n    lib.deinterleave_raw.restype = c_size_t\n    lib.depuncture23_raw.argtypes\
+      \ = [ND_POINTER, c_size_t, ND_POINTER, c_size_t]\n    lib.depuncture23_raw.restype\
+      \ = c_size_t\n    lib.viterbiDecode1614_raw.argtypes = [ND_POINTER, c_size_t,\
+      \ ND_POINTER]\n    lib.viterbiDecode1614_raw.restype = c_size_t\n    lib.checkCrc16Ccitt_raw.argtypes\
+      \ = [ND_POINTER, c_size_t, c_size_t]\n    lib.checkCrc16Ccitt_raw.restype =\
+      \ c_bool\n    \n\n    def descramble(data, size, scramblingCode):\n        res\
+      \ = np.array([0]*size, dtype='uint8')\n        res_len = lowerMac.lib.descramble_raw(data,\
+      \ len(data), res, size, scramblingCode)\n        return res\n\n    def deinterleave(data,\
+      \ K, a):\n        res = np.array([0]*K, dtype='uint8')\n        res_len = lowerMac.lib.deinterleave_raw(data,\
+      \ len(data), res, K, a)\n        return res\n        \n    def depuncture23(data,\
+      \ length):\n        res = np.array([0]*(4*length*2//3), dtype='uint8')\n   \
+      \     res_len = lowerMac.lib.depuncture23_raw(data, len(data), res, length)\n\
+      \        return res\n\n    def viterbiDecode1614(data):\n        res = np.array([0]*(len(data)//4),\
+      \ dtype='uint8')\n        res_len = lowerMac.lib.viterbiDecode1614_raw(data,\
+      \ len(data), res)\n        return res\n\n    def checkCrc16Ccitt(data, length):\n\
+      \        res_value = lowerMac.lib.checkCrc16Ccitt_raw(data, len(data), length)\n\
+      \        return res_value\n\n    def getValue(pdu, pos, len):\n        temp\
+      \ = 0\n        for i in range(len):\n            temp = temp * 2 + pdu[pos+i]\n\
+      \        return temp\n    \n    def __init__(self, mode= True):\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='serviceLowerMAC\\nserviceUpperMAC',  \
+      \ # will show up in GRC\n            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n\
+      \        )\n        self.mode = mode\n        self.burst_cnt = 0\n        self.commType\
+      \ = 0\n\n        self.m_tetraTime = tetraTime()\n        self.m_tetraCell =\
+      \ tetraCell()\n        self.m_sfStolenFlag = False\n        \n        self.fragFlag\
+      \ = 0\n        self.destinAddrType = 0\n        self.destinAddress  = 0\n  \
+      \      self.sourceAddrType = 0\n        self.sourceAddress  = 0\n        self.mnIdentity\
+      \     = 0\n           \n    def processDmacSync(self, pdu):\n        self.commType\
+      \       = lowerMac.getValue(pdu, 6, 2)\n        self.m_tetraTime.tn = lowerMac.getValue(pdu,\
+      \ 12, 2) + 1\n        self.m_tetraTime.fn = lowerMac.getValue(pdu, 14, 5)\n\
+      \        self.fragFlag       = lowerMac.getValue(pdu, 71, 1)\n\n        #DEBUG\
+      \ print(\"TN:FN\", self.m_tetraTime.tn,':', self.m_tetraTime.fn, \" fragFlag:\
+      \ \", self.fragFlag)\n        \n        pos = 76 if self.fragFlag else 72\n\
+      \        self.frameCntDn     = lowerMac.getValue(pdu, pos, 2)\n        pos +=\
+      \ 2\n        self.destinAddrType = lowerMac.getValue(pdu, pos, 2)\n        pos\
+      \ += 2\n        if self.destinAddrType != 2:\n            self.destinAddress\
+      \ = lowerMac.getValue(pdu, pos, 24)\n            pos += 24\n        self.sourceAddrType\
+      \ = lowerMac.getValue(pdu, pos, 2)\n        pos += 2\n        if self.sourceAddrType\
+      \ != 2:\n            self.sourceAddress = lowerMac.getValue(pdu, pos, 24)\n\
+      \            pos += 24\n        if (self.commType == 0) or (self.commType ==\
+      \ 1):\n            self.mnIdentity = lowerMac.getValue(pdu, pos, 24)\n     \
+      \       pos += 24\n        if self.mnIdentity and self.sourceAddress :\n   \
+      \         self.m_tetraCell.updateScramblingCode(self.sourceAddress, self.mnIdentity)\n\
+      \n        #DEBUG print(\"Scrambling code: \", hex(self.m_tetraCell.getScramblingCode())\
+      \ )\n        #DEBUG print(\"Source address: \", self.sourceAddress, \"Destin\
+      \ address: \", self.destinAddress)\n        \n    def general_work(self, input_items,\
+      \ output_items):\n        in_index = 0\n        out_index = 0\n        while\
+      \ (len(input_items[0]) >= in_index + IN_STEP) and (len(output_items[0]) >= out_index\
+      \ + OUT_STEP):\n            print(\"MN:FN:TN = \", self.m_tetraTime.mn,\":\"\
+      ,self.m_tetraTime.fn,\":\",self.m_tetraTime.tn, \" \", end ='')\n          \
+      \  if input_items[0][in_index+BURST_LEN] == DSB:\n                bkn1 = np.array(input_items[0][in_index+34+94\
+      \ :in_index+34+94 +120])\n                bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \n                bkn1 = lowerMac.descramble(bkn1, 120, 0x03)\n            \
+      \    bkn1 = lowerMac.deinterleave(bkn1, 120, 11)\n                bkn1 = lowerMac.depuncture23(bkn1,\
+      \ 120)\n                bkn1 = lowerMac.viterbiDecode1614(bkn1)\n\n        \
+      \        bkn2 = lowerMac.descramble(bkn2, 216, 0x03)\n                bkn2 =\
+      \ lowerMac.deinterleave(bkn2, 216, 101)\n                bkn2 = lowerMac.depuncture23(bkn2,\
+      \ 216)\n                bkn2 = lowerMac.viterbiDecode1614(bkn2)\n\n        \
+      \        bkn1crc = lowerMac.checkCrc16Ccitt(bkn1, 76)\n                bkn2crc\
+      \ = lowerMac.checkCrc16Ccitt(bkn2, 140)\n                \n                if\
+      \ (bkn1crc==False) or (bkn2crc==False):\n                    print(\"DSB \"\
+      , \"CRC: \", bkn1crc, bkn2crc)\n                else:\n                    print(\"\
+      DSB\")\n                    bkn1 = np.concatenate((bkn1[:60], bkn2[:124]))\n\
+      \                    self.processDmacSync( bkn1 )\n\n                    \"\"\
+      \" bkn1_txt = ''\n                    for i in range(len(bkn1)):\n         \
+      \               bkn1_txt += '1' if bkn1[i] else '0'\n                    print(bkn1_txt)\n\
+      \                    \"\"\"      \n            elif input_items[0][in_index+BURST_LEN]\
+      \ == DNB:\n                bkn1 = np.array(input_items[0][in_index+34+14 :in_index+34+14\
+      \ +216])\n                bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \                bkn1 = np.concatenate((bkn1, bkn2))\n                bkn1 =\
+      \ lowerMac.descramble(bkn1, 432, self.m_tetraCell.getScramblingCode())\n   \
+      \             \n                print(\"DNB\")\n                output_items[0][out_index:out_index+len(bkn1)]\
+      \ = bkn1\n                out_index += OUT_STEP\n                output_items[0][out_index-1]\
+      \ = 0 # set SPEECH FRAME\n\n            elif input_items[0][in_index+BURST_LEN]\
+      \ == DNB_SF:\n                bkn1ValidFlag = False\n                bkn2ValidFlag\
+      \ = False\n\n                # BKN1 block - DMAC STCH \n                bkn1\
+      \ = np.array(input_items[0][in_index+34+14 :in_index+34+14 +216])\n        \
+      \        bkn1 = lowerMac.descramble(bkn1, 216, self.m_tetraCell.getScramblingCode())\n\
+      \                bkn1 = lowerMac.deinterleave(bkn1, 216, 101)              \
+      \                   \n                bkn1 = lowerMac.depuncture23(bkn1, 216)\
+      \                                      \n                bkn1 = lowerMac.viterbiDecode1614(bkn1)\
+      \                                      \n                if (lowerMac.checkCrc16Ccitt(bkn1,\
+      \ 140)) :\n                    bkn1 = np.array(bkn1[:124])\n               \
+      \     bkn1ValidFlag = True\n\n                # BKN2 block - DMAC STCH or TCH/S\n\
+      \                bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \                bkn2 = lowerMac.descramble(bkn2, 216, self.m_tetraCell.getScramblingCode())\n\
+      \                bkn2_uplane = np.array(bkn2)\n                bkn2 = lowerMac.deinterleave(bkn2,\
+      \ 216, 101)\n                bkn2 = lowerMac.depuncture23(bkn2, 216)\n     \
+      \           bkn2 = lowerMac.viterbiDecode1614(bkn2)         \n             \
+      \   if (lowerMac.checkCrc16Ccitt(bkn2, 140)):         # check CRC if FALSE ==>\
+      \ TCH/S\n                    bkn2 = np.array(bkn1[:124])\n                 \
+      \   bkn2ValidFlag = True\n\n                print(\"DNB_SF\")\n            \n\
+      \                if (bkn1ValidFlag):\n                    pass # serviceUpperMac(Pdu(bkn1),\
+      \ DSTCH);                               // first block is stolen for C or U\
+      \ signalling\n                else:    # for debug purpose - display if CRC\
+      \ errors found\n                    print(f\"DNB_SF Burst CRC check errors found\
+      \ BKN1 TN/FN/MN: %u/%u/%u. \\n\\n\" % (self.m_tetraTime.tn, self.m_tetraTime.fn,\
+      \ self.m_tetraTime.mn))\n                \n                output_items[0][out_index:out_index+OUT_STEP]\
+      \ = np.array([0]*OUT_STEP, dtype='uint8')\n                \n              \
+      \  if (self.m_sfStolenFlag):        # if second-half slot is also stolen\n \
+      \                   if (bkn2ValidFlag):\n                        pass #serviceUpperMac(Pdu(bkn2),\
+      \ DSTCH);                           // second block also stolen, reset flag\n\
+      \                    else:\n                        print(f\"DNB_SF Burst CRC\
+      \ check errors found BKN2 TN/FN/MN: %u/%u/%u. \\n\\n\" %(self.m_tetraTime.tn,\
+      \ self.m_tetraTime.fn, self.m_tetraTime.mn))                    \n         \
+      \       else:\n                    output_items[0][out_index+216:out_index+432]\
+      \ = bkn2_uplane\n\n                out_index += OUT_STEP\n                output_items[0][out_index-1]\
+      \ = 1 # set STOLEN FRAME                \n            else:\n              \
+      \  print(\"Inactive\")\n\n            in_index += IN_STEP\n            self.burst_cnt\
+      \ += 1\n            self.m_tetraTime.timeIncrease()\n\n        self.consume(0,\
+      \ in_index) #consume port 0 input\n        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    mode: 'True'
+  states:
+    _io_cache: ('serviceLowerMAC\nserviceUpperMAC', 'lowerMac', [('mode', 'True')],
+      [('0', 'byte', 1)], [('0', 'byte', 1)], '', ['mode'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [408, 620.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_2
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nclass blk(gr.basic_block):\n\
+      \    codingLib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Receiver/codingLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, \n                \
+      \                      ndim=1,\n                                      flags=\"\
+      C\")\n    def service_mac(in_data, in_len, out_data):\n        blk.codingLib.service_mac.argtypes\
+      \ = [blk.ND_POINTER, c_size_t, blk.ND_POINTER]\n        blk.codingLib.service_mac.restype\
+      \ = c_size_t\n        res = blk.codingLib.service_mac(in_data, in_len, out_data)\n\
+      \        return res\n\n\n    def __init__(self):\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='DMO\\nBurst SYNC',   # will show up in\
+      \ GRC\n            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n    \
+      \    )\n\n    def general_work(self, input_items, output_items):\n        in_len\
+      \ = len(input_items[0])\n        out_len = len(output_items[0])\n        #print(f\"\
+      (in_len: %d, out_len: %d\" %(in_len, out_len))\n        consume_len = in_len\
+      \ if (in_len < (out_len - 510)) else (out_len - 510)\n        out_items = blk.service_mac(input_items[0],\
+      \ consume_len, output_items[0])\n        self.consume(0, consume_len)\n    \
+      \    return out_items\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('DMO\nBurst SYNC', 'blk', [], [('0', 'byte', 1)], [('0', 'byte', 1)],
+      '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 508.0]
+    rotation: 0
+    state: enabled
+- name: freq_xlating_fir_filter_xxx_0
+  id: freq_xlating_fir_filter_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    center_freq: freq_offset_khz*1e3
+    comment: ''
+    decim: decim
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    taps: firdes.low_pass(1,samp_rate,12500,12500*0.2)
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [304, 212.0]
+    rotation: 0
+    state: enabled
+- name: import_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import cmath
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 84.0]
+    rotation: 0
+    state: enabled
+- name: mmse_resampler_xx_0
+  id: mmse_resampler_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    phase_shift: '0'
+    resamp_ratio: float(samp_rate)/(float(decim)*float(channel_rate))
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [592, 160.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_const_sink_x_0
+  id: qtgui_const_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    grid: 'True'
+    gui_hint: ''
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '0'
+    marker10: '0'
+    marker2: '0'
+    marker3: '0'
+    marker4: '0'
+    marker5: '0'
+    marker6: '0'
+    marker7: '0'
+    marker8: '0'
+    marker9: '0'
+    name: '""'
+    nconnections: '1'
+    size: '2000'
+    style1: '0'
+    style10: '0'
+    style2: '0'
+    style3: '0'
+    style4: '0'
+    style5: '0'
+    style6: '0'
+    style7: '0'
+    style8: '0'
+    style9: '0'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '2'
+    xmin: '-2'
+    ymax: '2'
+    ymin: '-2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [816, 300.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1200, 112.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_time_sink_x_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: output DMO Burst SYNC
+    nconnections: '1'
+    size: '1020'
+    srate: channel_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1328, 540.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Push per Frame
+    label10: Signal 10
+    label2: Service lowerMac
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"lowerMac"'
+    nconnections: '1'
+    size: '2000'
+    srate: audio_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.2'
+    ymin: '-1.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1200, 764.0]
+    rotation: 0
+    state: disabled
+- name: rtlsdr_source_0
+  id: rtlsdr_source
+  parameters:
+    affinity: ''
+    alias: ''
+    ant0: ''
+    ant1: ''
+    ant10: ''
+    ant11: ''
+    ant12: ''
+    ant13: ''
+    ant14: ''
+    ant15: ''
+    ant16: ''
+    ant17: ''
+    ant18: ''
+    ant19: ''
+    ant2: ''
+    ant20: ''
+    ant21: ''
+    ant22: ''
+    ant23: ''
+    ant24: ''
+    ant25: ''
+    ant26: ''
+    ant27: ''
+    ant28: ''
+    ant29: ''
+    ant3: ''
+    ant30: ''
+    ant31: ''
+    ant4: ''
+    ant5: ''
+    ant6: ''
+    ant7: ''
+    ant8: ''
+    ant9: ''
+    args: '""'
+    bb_gain0: '0'
+    bb_gain1: '20'
+    bb_gain10: '20'
+    bb_gain11: '20'
+    bb_gain12: '20'
+    bb_gain13: '20'
+    bb_gain14: '20'
+    bb_gain15: '20'
+    bb_gain16: '20'
+    bb_gain17: '20'
+    bb_gain18: '20'
+    bb_gain19: '20'
+    bb_gain2: '20'
+    bb_gain20: '20'
+    bb_gain21: '20'
+    bb_gain22: '20'
+    bb_gain23: '20'
+    bb_gain24: '20'
+    bb_gain25: '20'
+    bb_gain26: '20'
+    bb_gain27: '20'
+    bb_gain28: '20'
+    bb_gain29: '20'
+    bb_gain3: '20'
+    bb_gain30: '20'
+    bb_gain31: '20'
+    bb_gain4: '20'
+    bb_gain5: '20'
+    bb_gain6: '20'
+    bb_gain7: '20'
+    bb_gain8: '20'
+    bb_gain9: '20'
+    bw0: '0'
+    bw1: '0'
+    bw10: '0'
+    bw11: '0'
+    bw12: '0'
+    bw13: '0'
+    bw14: '0'
+    bw15: '0'
+    bw16: '0'
+    bw17: '0'
+    bw18: '0'
+    bw19: '0'
+    bw2: '0'
+    bw20: '0'
+    bw21: '0'
+    bw22: '0'
+    bw23: '0'
+    bw24: '0'
+    bw25: '0'
+    bw26: '0'
+    bw27: '0'
+    bw28: '0'
+    bw29: '0'
+    bw3: '0'
+    bw30: '0'
+    bw31: '0'
+    bw4: '0'
+    bw5: '0'
+    bw6: '0'
+    bw7: '0'
+    bw8: '0'
+    bw9: '0'
+    clock_source0: ''
+    clock_source1: ''
+    clock_source2: ''
+    clock_source3: ''
+    clock_source4: ''
+    clock_source5: ''
+    clock_source6: ''
+    clock_source7: ''
+    comment: ''
+    corr0: '0'
+    corr1: '0'
+    corr10: '0'
+    corr11: '0'
+    corr12: '0'
+    corr13: '0'
+    corr14: '0'
+    corr15: '0'
+    corr16: '0'
+    corr17: '0'
+    corr18: '0'
+    corr19: '0'
+    corr2: '0'
+    corr20: '0'
+    corr21: '0'
+    corr22: '0'
+    corr23: '0'
+    corr24: '0'
+    corr25: '0'
+    corr26: '0'
+    corr27: '0'
+    corr28: '0'
+    corr29: '0'
+    corr3: '0'
+    corr30: '0'
+    corr31: '0'
+    corr4: '0'
+    corr5: '0'
+    corr6: '0'
+    corr7: '0'
+    corr8: '0'
+    corr9: '0'
+    dc_offset_mode0: '0'
+    dc_offset_mode1: '0'
+    dc_offset_mode10: '0'
+    dc_offset_mode11: '0'
+    dc_offset_mode12: '0'
+    dc_offset_mode13: '0'
+    dc_offset_mode14: '0'
+    dc_offset_mode15: '0'
+    dc_offset_mode16: '0'
+    dc_offset_mode17: '0'
+    dc_offset_mode18: '0'
+    dc_offset_mode19: '0'
+    dc_offset_mode2: '0'
+    dc_offset_mode20: '0'
+    dc_offset_mode21: '0'
+    dc_offset_mode22: '0'
+    dc_offset_mode23: '0'
+    dc_offset_mode24: '0'
+    dc_offset_mode25: '0'
+    dc_offset_mode26: '0'
+    dc_offset_mode27: '0'
+    dc_offset_mode28: '0'
+    dc_offset_mode29: '0'
+    dc_offset_mode3: '0'
+    dc_offset_mode30: '0'
+    dc_offset_mode31: '0'
+    dc_offset_mode4: '0'
+    dc_offset_mode5: '0'
+    dc_offset_mode6: '0'
+    dc_offset_mode7: '0'
+    dc_offset_mode8: '0'
+    dc_offset_mode9: '0'
+    freq0: int(frequency_mhz*1e6-freq_offset_khz*1e3)
+    freq1: 100e6
+    freq10: 100e6
+    freq11: 100e6
+    freq12: 100e6
+    freq13: 100e6
+    freq14: 100e6
+    freq15: 100e6
+    freq16: 100e6
+    freq17: 100e6
+    freq18: 100e6
+    freq19: 100e6
+    freq2: 100e6
+    freq20: 100e6
+    freq21: 100e6
+    freq22: 100e6
+    freq23: 100e6
+    freq24: 100e6
+    freq25: 100e6
+    freq26: 100e6
+    freq27: 100e6
+    freq28: 100e6
+    freq29: 100e6
+    freq3: 100e6
+    freq30: 100e6
+    freq31: 100e6
+    freq4: 100e6
+    freq5: 100e6
+    freq6: 100e6
+    freq7: 100e6
+    freq8: 100e6
+    freq9: 100e6
+    gain0: '1'
+    gain1: '10'
+    gain10: '10'
+    gain11: '10'
+    gain12: '10'
+    gain13: '10'
+    gain14: '10'
+    gain15: '10'
+    gain16: '10'
+    gain17: '10'
+    gain18: '10'
+    gain19: '10'
+    gain2: '10'
+    gain20: '10'
+    gain21: '10'
+    gain22: '10'
+    gain23: '10'
+    gain24: '10'
+    gain25: '10'
+    gain26: '10'
+    gain27: '10'
+    gain28: '10'
+    gain29: '10'
+    gain3: '10'
+    gain30: '10'
+    gain31: '10'
+    gain4: '10'
+    gain5: '10'
+    gain6: '10'
+    gain7: '10'
+    gain8: '10'
+    gain9: '10'
+    gain_mode0: 'False'
+    gain_mode1: 'False'
+    gain_mode10: 'False'
+    gain_mode11: 'False'
+    gain_mode12: 'False'
+    gain_mode13: 'False'
+    gain_mode14: 'False'
+    gain_mode15: 'False'
+    gain_mode16: 'False'
+    gain_mode17: 'False'
+    gain_mode18: 'False'
+    gain_mode19: 'False'
+    gain_mode2: 'False'
+    gain_mode20: 'False'
+    gain_mode21: 'False'
+    gain_mode22: 'False'
+    gain_mode23: 'False'
+    gain_mode24: 'False'
+    gain_mode25: 'False'
+    gain_mode26: 'False'
+    gain_mode27: 'False'
+    gain_mode28: 'False'
+    gain_mode29: 'False'
+    gain_mode3: 'False'
+    gain_mode30: 'False'
+    gain_mode31: 'False'
+    gain_mode4: 'False'
+    gain_mode5: 'False'
+    gain_mode6: 'False'
+    gain_mode7: 'False'
+    gain_mode8: 'False'
+    gain_mode9: 'False'
+    if_gain0: '0'
+    if_gain1: '20'
+    if_gain10: '20'
+    if_gain11: '20'
+    if_gain12: '20'
+    if_gain13: '20'
+    if_gain14: '20'
+    if_gain15: '20'
+    if_gain16: '20'
+    if_gain17: '20'
+    if_gain18: '20'
+    if_gain19: '20'
+    if_gain2: '20'
+    if_gain20: '20'
+    if_gain21: '20'
+    if_gain22: '20'
+    if_gain23: '20'
+    if_gain24: '20'
+    if_gain25: '20'
+    if_gain26: '20'
+    if_gain27: '20'
+    if_gain28: '20'
+    if_gain29: '20'
+    if_gain3: '20'
+    if_gain30: '20'
+    if_gain31: '20'
+    if_gain4: '20'
+    if_gain5: '20'
+    if_gain6: '20'
+    if_gain7: '20'
+    if_gain8: '20'
+    if_gain9: '20'
+    iq_balance_mode0: '0'
+    iq_balance_mode1: '0'
+    iq_balance_mode10: '0'
+    iq_balance_mode11: '0'
+    iq_balance_mode12: '0'
+    iq_balance_mode13: '0'
+    iq_balance_mode14: '0'
+    iq_balance_mode15: '0'
+    iq_balance_mode16: '0'
+    iq_balance_mode17: '0'
+    iq_balance_mode18: '0'
+    iq_balance_mode19: '0'
+    iq_balance_mode2: '0'
+    iq_balance_mode20: '0'
+    iq_balance_mode21: '0'
+    iq_balance_mode22: '0'
+    iq_balance_mode23: '0'
+    iq_balance_mode24: '0'
+    iq_balance_mode25: '0'
+    iq_balance_mode26: '0'
+    iq_balance_mode27: '0'
+    iq_balance_mode28: '0'
+    iq_balance_mode29: '0'
+    iq_balance_mode3: '0'
+    iq_balance_mode30: '0'
+    iq_balance_mode31: '0'
+    iq_balance_mode4: '0'
+    iq_balance_mode5: '0'
+    iq_balance_mode6: '0'
+    iq_balance_mode7: '0'
+    iq_balance_mode8: '0'
+    iq_balance_mode9: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nchan: '1'
+    num_mboards: '1'
+    sample_rate: samp_rate
+    sync: sync
+    time_source0: ''
+    time_source1: ''
+    time_source2: ''
+    time_source3: ''
+    time_source4: ''
+    time_source5: ''
+    time_source6: ''
+    time_source7: ''
+    type: fc32
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [0, 140.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [analog_feedforward_agc_cc_0, '0', digital_fll_band_edge_cc_0, '0']
+- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0_0, '0']
+- [blocks_file_source_0, '0', blocks_throttle2_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', audio_sink_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', qtgui_time_sink_x_0_0_0, '0']
+- [blocks_short_to_float_0_0, '0', blocks_multiply_const_vxx_0_0, '0']
+- [blocks_throttle2_0, '0', epy_block_2, '0']
+- [blocks_unpack_k_bits_bb_0, '0', blocks_file_sink_0, '0']
+- [blocks_unpack_k_bits_bb_0, '0', blocks_null_sink_0, '0']
+- [blocks_unpack_k_bits_bb_0, '0', epy_block_0_0_0, '0']
+- [blocks_unpack_k_bits_bb_0, '0', epy_block_2, '0']
+- [digital_constellation_decoder_cb_0, '0', digital_map_bb_0, '0']
+- [digital_diff_phasor_cc_0, '0', digital_constellation_decoder_cb_0, '0']
+- [digital_diff_phasor_cc_0, '0', qtgui_const_sink_x_0, '0']
+- [digital_fll_band_edge_cc_0, '0', digital_pfb_clock_sync_xxx_0, '0']
+- [digital_linear_equalizer_0, '0', digital_diff_phasor_cc_0, '0']
+- [digital_map_bb_0, '0', blocks_unpack_k_bits_bb_0, '0']
+- [digital_pfb_clock_sync_xxx_0, '0', digital_linear_equalizer_0, '0']
+- [epy_block_0, '0', epy_block_0_2, '0']
+- [epy_block_0_0_0, '0', epy_block_1, '0']
+- [epy_block_0_2, '0', blocks_short_to_float_0_0, '0']
+- [epy_block_1, '0', epy_block_0, '0']
+- [epy_block_2, '0', blocks_char_to_float_0, '0']
+- [freq_xlating_fir_filter_xxx_0, '0', mmse_resampler_xx_0, '0']
+- [mmse_resampler_xx_0, '0', analog_feedforward_agc_cc_0, '0']
+- [mmse_resampler_xx_0, '0', blocks_file_sink_1, '0']
+- [mmse_resampler_xx_0, '0', digital_fll_band_edge_cc_0, '0']
+- [mmse_resampler_xx_0, '0', digital_pfb_clock_sync_xxx_0, '0']
+- [rtlsdr_source_0, '0', freq_xlating_fir_filter_xxx_0, '0']
+- [rtlsdr_source_0, '0', qtgui_time_sink_x_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0

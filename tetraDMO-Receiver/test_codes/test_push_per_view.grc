@@ -1,0 +1,270 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: test_push_per_view
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Not titled yet
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: next_view
+  id: variable_qtgui_toggle_button_msg
+  parameters:
+    comment: ''
+    gui_hint: ''
+    initPressed: 'False'
+    label: ''
+    outputmsgname: value
+    pressBackgroundColor: default
+    pressFontColor: default
+    pressed: '1'
+    relBackgroundColor: default
+    relFontColor: default
+    released: '0'
+    type: bool
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [392, 12.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '32000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [192, 12.0]
+    rotation: 0
+    state: enabled
+- name: view_step
+  id: variable
+  parameters:
+    comment: ''
+    value: 520*1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [296, 12.0]
+    rotation: 0
+    state: enabled
+- name: blocks_char_to_float_0_0_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [640, 172.0]
+    rotation: 0
+    state: enabled
+- name: blocks_vector_source_x_0
+  id: blocks_vector_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    tags: '[]'
+    type: byte
+    vector: ([0]*view_step+[1]*(view_step//2) +[2]*(view_step//2) +[3]*(view_step//2)+[4]*(view_step
+      //2 ) )
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 156.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0_1_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\nclass frameStep(gr.basic_block):  # other base\
+      \ classes are basic_block, decim_block, interp_block\n    \"\"\"Embedded Python\
+      \ Block example - a simple multiply const\"\"\"\n\n    def __init__(self, step\
+      \ = 4800, change = False):  # only default arguments here\n        \"\"\"arguments\
+      \ to this function show up as parameters in GRC\"\"\"\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='Push_per_Frame',   # will show up in GRC\n\
+      \            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n        )\n\
+      \        # if an attribute with the same name as a parameter is found,\n   \
+      \     # a callback is registered (properties work, too).\n        self.step=\
+      \ step\n        self.change = change\n        self.prechange = False\n\n   \
+      \ def general_work(self, input_items, output_items):\n        \"\"\"example:\
+      \ multiply with constant\"\"\"\n        next_view = False\n        if self.change\
+      \ != self.prechange :\n            #print(\"Next View\")\n            next_view\
+      \ = True\n            self.prechange = self.change\n        if next_view and\
+      \ (len(output_items[0]) >= self.step) and (len(input_items[0]) >= self.step):\n\
+      \            output_items[0][:self.step] = input_items[0][:self.step]\n    \
+      \        #DEBUG output_txt = ''\n            #DEBUG for i in range(self.step):\n\
+      \            #DEBUG output_txt += '1' if output_items[0][i] else '0'\n     \
+      \       self.consume(0, self.step)\n            #DEBUG print (output_txt)\n\
+      \            return self.step\n        else:\n            return 0\n"
+    affinity: ''
+    alias: ''
+    change: next_view
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    step: view_step
+  states:
+    _io_cache: ('Push_per_Frame', 'frameStep', [('step', '4800'), ('change', 'False')],
+      [('0', 'byte', 1)], [('0', 'byte', 1)], 'Embedded Python Block example - a simple
+      multiply const', ['change', 'step'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [376, 164.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Push per Frame
+    label10: Signal 10
+    label2: Service lowerMac
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '0'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"Push per Frame"'
+    nconnections: '1'
+    size: view_step
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '3.2'
+    ymin: '-0.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1040, 148.0]
+    rotation: 0
+    state: enabled
+
+connections:
+- [blocks_char_to_float_0_0_0, '0', qtgui_time_sink_x_0_0, '0']
+- [blocks_vector_source_x_0, '0', epy_block_0_1_0, '0']
+- [epy_block_0_1_0, '0', blocks_char_to_float_0_0_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0

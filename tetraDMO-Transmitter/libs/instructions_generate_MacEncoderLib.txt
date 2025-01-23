@@ -1,0 +1,35 @@
+6. MacEncoderLib.so
+
+g++ -c -fPIC  MacEncoderLib.cc viterbi.cc
+g++ -shared -o MacEncoderLib.so  MacEncoderLib.o viterbi.o
+
+
+previous references:
+
+-fPIC	The -fPIC flag stands for 'Position Independent Code' generation
+
+
+FINAL COMMANDS:
+
+1.tetraChDecoderLib.so
+gcc -c -fPIC cdec_tet.c sub_cd.c tetra_op.c
+gcc -shared -o tetraChDecoderLib.so cdec_tet.o sub_cd.o tetra_op.o
+
+
+2.tetraSrcDecoderLib.so
+gcc -c -fPIC  sdec_tet.c  sub_sc_d.c  sub_dsp.c  fbas_tet.c  fexp_tet.c  fmat_tet.c  tetra_op.c
+gcc -shared -o tetraSrcDecoderLib.so  sdec_tet.o  sub_sc_d.o  sub_dsp.o  fbas_tet.o  fexp_tet.o  fmat_tet.o  tetra_op.o
+
+
+3.tetraSrcCoderLib.so
+gcc -c -fPIC  scod_tet.c  sub_sc_d.c  sub_dsp.c  fbas_tet.c  fexp_tet.c  fmat_tet.c  tetra_op.c
+gcc -shared -o tetraSrcCoderLib.so  scod_tet.o  sub_sc_d.o  sub_dsp.o  fbas_tet.o  fexp_tet.o  fmat_tet.o  tetra_op.o
+
+4.tetraChCoderLib.so
+gcc -c -fPIC  ccod_tet.c  sub_cc.c  tetra_op.c
+gcc -shared -o tetraChCoderLib.so  ccod_tet.o  sub_cc.o  tetra_op.o
+
+5. CODING FUNCTIONS LIBRARY (written in C++)
+g++ -c -fPIC  codingLib.cc viterbi.cc
+g++ -shared -o codingLib.so  codingLib.o viterbi.o
+

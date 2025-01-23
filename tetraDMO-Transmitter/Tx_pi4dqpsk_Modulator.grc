@@ -1,0 +1,794 @@
+options:
+  parameters:
+    author: ''
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: Tx_pi4dqpsk_Modulator
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Tx_pi4dqpsk_Modulator
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: decim
+  id: variable
+  parameters:
+    comment: ''
+    value: '32'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [448, 12.0]
+    rotation: 0
+    state: enabled
+- name: frequency_hz
+  id: variable_qtgui_entry
+  parameters:
+    comment: ''
+    entry_signal: editingFinished
+    gui_hint: '[1,0]'
+    label: Frequency [Hz]
+    type: real
+    value: '390000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [288, 12.0]
+    rotation: 0
+    state: enabled
+- name: num_tap
+  id: variable
+  parameters:
+    comment: ''
+    value: '11'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1032, 12.0]
+    rotation: 0
+    state: enabled
+- name: pluto_freq_offset
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: float
+    start: '-5000'
+    step: '100'
+    stop: '5000'
+    value: '3800'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [528, 12.0]
+    rotation: 0
+    state: enabled
+- name: pttButton
+  id: variable_qtgui_push_button
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    pressed: '1'
+    released: '0'
+    type: bool
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [656, 12.0]
+    rotation: 0
+    state: enabled
+- name: samp_per_symbol
+  id: variable
+  parameters:
+    comment: ''
+    value: '2'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [800, 12.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 80000*decim
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: symbol_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '18000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [928, 12.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/ctn008/tetraDMO-Transmitter/TxDMO_s36kIQ.complex64
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1272, 700.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_source_0_0_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/ctn008/tetraDMO-Transmitter/samples/tetraDMO_s36kBit_tx.uint8
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [0, 756.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_source_0_1
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/ctn008/0.Pluto/pluto_04_analysis/TxDMO_pluto_04_s36kIQ.complex64
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'True'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 300.0]
+    rotation: 0
+    state: disabled
+- name: blocks_float_to_complex_0
+  id: blocks_float_to_complex
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1096, 616.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_xx_0
+  id: blocks_multiply_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [720, 552.0]
+    rotation: 0
+    state: true
+- name: blocks_multiply_xx_0_0
+  id: blocks_multiply_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [720, 680.0]
+    rotation: 0
+    state: true
+- name: blocks_repeat_0
+  id: blocks_repeat
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    interp: samp_per_symbol
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [520, 564.0]
+    rotation: 0
+    state: true
+- name: blocks_repeat_0_0
+  id: blocks_repeat
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    interp: samp_per_symbol
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [512, 724.0]
+    rotation: 0
+    state: true
+- name: blocks_throttle2_0_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: symbol_rate*2
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 636.0]
+    rotation: 0
+    state: bypassed
+- name: blocks_vector_source_x_1
+  id: blocks_vector_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    repeat: 'True'
+    tags: '[]'
+    type: float
+    vector: '[1]+ [0]*(samp_per_symbol-1)'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [520, 628.0]
+    rotation: 0
+    state: true
+- name: epy_block_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\nclass blk(gr.sync_block): \n    def __init__(self,\
+      \ pttStatus=False):  \n        gr.sync_block.__init__(\n            self,\n\
+      \            name='PTT_Control',   # will show up in GRC\n            in_sig=[np.complex64],\n\
+      \            out_sig=[np.complex64]\n        )\n        self.pttStatus = pttStatus\n\
+      \n    def work(self, input_items, output_items):\n        if self.pttStatus:\n\
+      \            output_items[0][:] = input_items[0]\n            return len(output_items[0])\n\
+      \        else:\n            return 0\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    pttStatus: pttButton
+  states:
+    _io_cache: ('PTT_Control', 'blk', [('pttStatus', 'False')], [('0', 'complex',
+      1)], [('0', 'complex', 1)], '', ['pttStatus'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 332.0]
+    rotation: 0
+    state: bypassed
+- name: epy_block_1
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\nIN_STEP = 510\nOUT_STEP = 510\n\nclass dmoBurst_iqMapper(gr.basic_block):\
+      \  \n    # Phase Index Change Table: corresponding to current phase (row 0-7)\
+      \ and current dibit value (column 0-3)\n    # B2k_1,B2k:   00 01 10 11\n   \
+      \ phase_shift = (1, 3, 7, 5)\n\n    # Phase value corresponding to Phase Index\n\
+      \    IQ_table = (( np.cos(np.pi/4 * 0) , np.sin(np.pi/4 * 0) ),\n          \
+      \      ( np.cos(np.pi/4 * 1) , np.sin(np.pi/4 * 1) ),\n                ( np.cos(np.pi/4\
+      \ * 2) , np.sin(np.pi/4 * 2) ),\n                ( np.cos(np.pi/4 * 3) , np.sin(np.pi/4\
+      \ * 3) ),\n                ( np.cos(np.pi/4 * 4) , np.sin(np.pi/4 * 4) ),\n\
+      \                ( np.cos(np.pi/4 * 5) , np.sin(np.pi/4 * 5) ),\n          \
+      \      ( np.cos(np.pi/4 * 6) , np.sin(np.pi/4 * 6) ),\n                ( np.cos(np.pi/4\
+      \ * 7) , np.sin(np.pi/4 * 7) ))\n\n    def __init__(self):\n        \"\"\"arguments\
+      \ to this function show up as parameters in GRC\"\"\"\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='dmoBurst_iqMapper',\n            in_sig=[np.uint8],\n\
+      \            out_sig=[np.float32, np.float32]\n        )\n        self.cur_phase_index\
+      \ = \t0\t\t\t\t# current phase index value S(0) = 1\n\n    def general_work(self,\
+      \ input_items, output_items):\n        in_index = 0\n        out_index = 0\n\
+      \        while ( (len(input_items[0])-in_index) >= IN_STEP) and ( (len(output_items[0])-out_index)\
+      \ >= OUT_STEP):\n            print(\"Burst type: \", input_items[0][in_index])\n\
+      \            for i in range (510):\n                self.cur_phase_index +=\
+      \ dmoBurst_iqMapper.phase_shift[ input_items[0][in_index+i+10] ]\n         \
+      \       if self.cur_phase_index >= 8:\n                    self.cur_phase_index\
+      \ -= 8\n                output_items[0][out_index+i] = dmoBurst_iqMapper.IQ_table[\
+      \ self.cur_phase_index ][0]\n                output_items[1][out_index+i] =\
+      \ dmoBurst_iqMapper.IQ_table[ self.cur_phase_index ][1]\n            \"\"\"\n\
+      \            if ( input_items[0][in_index] ):   # active burst, either DSB,\
+      \ DNB or DNB_SF\n                for i in range (510):\n                   \
+      \ self.cur_phase_index += dmoBurst_iqMapper.phase_shift[ input_items[0][in_index+i+10]\
+      \ ]\n                    if self.cur_phase_index >= 8:\n                   \
+      \     self.cur_phase_index -= 8\n                    output_items[0][out_index+i]\
+      \ = dmoBurst_iqMapper.IQ_table[ self.cur_phase_index ][0]\n                \
+      \    output_items[1][out_index+i] = dmoBurst_iqMapper.IQ_table[ self.cur_phase_index\
+      \ ][1]\n            else:\n                for i in range (510):\n         \
+      \           output_items[0][out_index+i] = 0.0\n                    output_items[1][out_index+i]\
+      \ = 0.0\n            \"\"\"\n            in_index += IN_STEP\n            out_index\
+      \ += OUT_STEP\n        self.consume(0, in_index)\n        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: 'in: 520, out: 510'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('dmoBurst_iqMapper', 'dmoBurst_iqMapper', [], [('0', 'byte', 1)],
+      [('0', 'float', 1), ('1', 'float', 1)], 'arguments to this function show up
+      as parameters in GRC', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [256, 624.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_2
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\nclass blk(gr.sync_block):  # other base classes\
+      \ are basic_block, decim_block, interp_block\n    \"\"\"Embedded Python Block\
+      \ example - a simple multiply const\"\"\"\n\n    def __init__(self, example_param=1.0):\
+      \  # only default arguments here\n        \"\"\"arguments to this function show\
+      \ up as parameters in GRC\"\"\"\n        gr.sync_block.__init__(\n         \
+      \   self,\n            name='NOT WORKING IN REALTIME\\nOFFLINE PLEASE TEST',\
+      \   # will show up in GRC\n            in_sig=[np.complex64],\n            out_sig=[np.complex64]\n\
+      \        )\n        # if an attribute with the same name as a parameter is found,\n\
+      \        # a callback is registered (properties work, too).\n        self.example_param\
+      \ = example_param\n\n    def work(self, input_items, output_items):\n      \
+      \  \"\"\"example: multiply with constant\"\"\"\n        output_items[0][:] =\
+      \ input_items[0] * self.example_param\n        return len(output_items[0])\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    example_param: '1.0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('NOT WORKING IN REALTIME\nOFFLINE PLEASE TEST', 'blk', [('example_param',
+      '1.0')], [('0', 'complex', 1)], [('0', 'complex', 1)], 'Embedded Python Block
+      example - a simple multiply const', ['example_param'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 396.0]
+    rotation: 0
+    state: enabled
+- name: iio_pluto_sink_0
+  id: iio_pluto_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    attenuation1: '10'
+    bandwidth: '2000000'
+    buffer_size: int(32768)
+    comment: ''
+    cyclic: 'False'
+    filter: ''
+    filter_source: '''Auto'''
+    fpass: '0'
+    frequency: frequency_hz + pluto_freq_offset
+    fstop: '0'
+    len_tag_key: ''
+    samplerate: samp_rate
+    type: fc32
+    uri: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1120, 308.0]
+    rotation: 0
+    state: enabled
+- name: low_pass_filter_0_0
+  id: low_pass_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    beta: '6.76'
+    comment: ''
+    cutoff_freq: '25000'
+    decim: '1'
+    gain: decim*3/4
+    interp: decim
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: interp_fir_filter_ccf
+    width: '5000'
+    win: window.WIN_HAMMING
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [896, 316.0]
+    rotation: 0
+    state: enabled
+- name: mmse_resampler_xx_0
+  id: mmse_resampler_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    phase_shift: '0'
+    resamp_ratio: 36/80
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [640, 336.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"s36kIQ signal "'
+    nconnections: '1'
+    size: '5100'
+    srate: symbol_rate*2
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.5'
+    ymin: '-1.5'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [648, 180.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_1_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"IQ signal after interpolation"'
+    nconnections: '1'
+    size: 13500*32
+    srate: (samp_rate)
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: complex
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.5'
+    ymin: '-1.5'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1112, 196.0]
+    rotation: 0
+    state: disabled
+- name: root_raised_cosine_filter_0
+  id: root_raised_cosine_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: '0.35'
+    comment: ''
+    decim: '1'
+    gain: samp_per_symbol
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    ntaps: num_tap*samp_per_symbol
+    samp_rate: samp_per_symbol*symbol_rate
+    sym_rate: symbol_rate
+    type: fir_filter_fff
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [856, 540.0]
+    rotation: 0
+    state: true
+- name: root_raised_cosine_filter_0_0
+  id: root_raised_cosine_filter
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: '0.35'
+    comment: ''
+    decim: '1'
+    gain: samp_per_symbol
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    ntaps: num_tap*samp_per_symbol
+    samp_rate: samp_per_symbol*symbol_rate
+    sym_rate: symbol_rate
+    type: fir_filter_fff
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [856, 668.0]
+    rotation: 0
+    state: true
+
+connections:
+- [blocks_file_source_0_0_0, '0', blocks_throttle2_0_0, '0']
+- [blocks_float_to_complex_0, '0', blocks_file_sink_0, '0']
+- [blocks_float_to_complex_0, '0', epy_block_0, '0']
+- [blocks_multiply_xx_0, '0', root_raised_cosine_filter_0, '0']
+- [blocks_multiply_xx_0_0, '0', root_raised_cosine_filter_0_0, '0']
+- [blocks_repeat_0, '0', blocks_multiply_xx_0, '0']
+- [blocks_repeat_0_0, '0', blocks_multiply_xx_0_0, '1']
+- [blocks_throttle2_0_0, '0', epy_block_1, '0']
+- [blocks_vector_source_x_1, '0', blocks_multiply_xx_0, '1']
+- [blocks_vector_source_x_1, '0', blocks_multiply_xx_0_0, '0']
+- [epy_block_0, '0', mmse_resampler_xx_0, '0']
+- [epy_block_0, '0', qtgui_time_sink_x_1, '0']
+- [epy_block_1, '0', blocks_repeat_0, '0']
+- [epy_block_1, '1', blocks_repeat_0_0, '0']
+- [low_pass_filter_0_0, '0', iio_pluto_sink_0, '0']
+- [low_pass_filter_0_0, '0', qtgui_time_sink_x_1_0, '0']
+- [mmse_resampler_xx_0, '0', low_pass_filter_0_0, '0']
+- [root_raised_cosine_filter_0, '0', blocks_float_to_complex_0, '0']
+- [root_raised_cosine_filter_0_0, '0', blocks_float_to_complex_0, '1']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0

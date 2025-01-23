@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"python/TETRA_DMO/bindings/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "pythonapi",
+			"destination" : "lib/python3.10/dist-packages/gnuradio/TETRA_DMO",
+			"paths" : 
+			[
+				"python/TETRA_DMO/bindings/TETRA_DMO_python.cpython-310-x86_64-linux-gnu.so"
+			],
+			"targetId" : "TETRA_DMO_python::@76b531a1471cc35a06f5",
+			"targetIndex" : 1,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "python/TETRA_DMO/bindings",
+		"source" : "python/TETRA_DMO/bindings"
+	}
+}

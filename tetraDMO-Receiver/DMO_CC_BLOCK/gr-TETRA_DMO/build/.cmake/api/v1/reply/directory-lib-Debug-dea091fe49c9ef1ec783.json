@@ -1,0 +1,108 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"gr_library_foo"
+		],
+		"files" : 
+		[
+			"/usr/local/lib/cmake/gnuradio/GrMiscUtils.cmake",
+			"lib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 86,
+				"parent" : 1
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libgnuradio-TETRA_DMO.so.1.0.0.0",
+				"lib/libgnuradio-TETRA_DMO.so.1.0.0"
+			],
+			"targetId" : "gnuradio-TETRA_DMO::@306ed2d68c6501e8728f",
+			"targetIndex" : 3,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libgnuradio-TETRA_DMO.so"
+			],
+			"targetId" : "gnuradio-TETRA_DMO::@306ed2d68c6501e8728f",
+			"targetIndex" : 3,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/gnuradio-TETRA_DMO",
+			"exportName" : "gnuradio-TETRA_DMO-export",
+			"exportTargets" : 
+			[
+				{
+					"id" : "gnuradio-TETRA_DMO::@306ed2d68c6501e8728f",
+					"index" : 3
+				}
+			],
+			"paths" : 
+			[
+				"lib/CMakeFiles/Export/lib/cmake/gnuradio-TETRA_DMO/gnuradio-TETRA_DMOTargets.cmake"
+			],
+			"type" : "export"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "lib/cmake/gnuradio-TETRA_DMO",
+			"paths" : 
+			[
+				"build/lib/cmake/Modules/gnuradio-TETRA_DMOConfig.cmake"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib",
+		"source" : "lib"
+	}
+}

@@ -1,0 +1,230 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-8f1e170ccc4a37da8c88.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "include/gnuradio/TETRA_DMO",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-include.gnuradio.TETRA_DMO-Debug-e19fe3dc8552856f5beb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "include/gnuradio/TETRA_DMO"
+				},
+				{
+					"build" : "lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib-Debug-dea091fe49c9ef1ec783.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "lib",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "apps",
+					"jsonFile" : "directory-apps-Debug-76fddd1453400e648719.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "apps"
+				},
+				{
+					"build" : "examples",
+					"jsonFile" : "directory-examples-Debug-1c8b83b621b6ef38a245.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "examples"
+				},
+				{
+					"build" : "docs",
+					"jsonFile" : "directory-docs-Debug-c463161ff6ebad611835.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "docs"
+				},
+				{
+					"build" : "python/TETRA_DMO",
+					"childIndexes" : 
+					[
+						7
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-python.TETRA_DMO-Debug-d0fe0062943b69e7ded5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "python/TETRA_DMO",
+					"targetIndexes" : 
+					[
+						2,
+						4
+					]
+				},
+				{
+					"build" : "python/TETRA_DMO/bindings",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-python.TETRA_DMO.bindings-Debug-6da811b28983e701dc4d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "python/TETRA_DMO/bindings",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "grc",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-grc-Debug-a74fde8943e1faaf8a74.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "grc"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"name" : "gr-TETRA_DMO",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 7,
+					"id" : "TETRA_DMO_docstrings::@76b531a1471cc35a06f5",
+					"jsonFile" : "target-TETRA_DMO_docstrings-Debug-a172541e9634850e9689.json",
+					"name" : "TETRA_DMO_docstrings",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "TETRA_DMO_python::@76b531a1471cc35a06f5",
+					"jsonFile" : "target-TETRA_DMO_python-Debug-d556bc1fe3396c3c5712.json",
+					"name" : "TETRA_DMO_python",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "copy_module_for_tests::@4bcd1f02b4c854ac780d",
+					"jsonFile" : "target-copy_module_for_tests-Debug-7525cf4a42a802b77b39.json",
+					"name" : "copy_module_for_tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gnuradio-TETRA_DMO::@306ed2d68c6501e8728f",
+					"jsonFile" : "target-gnuradio-TETRA_DMO-Debug-eca713988168d48c195d.json",
+					"name" : "gnuradio-TETRA_DMO",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "pygen_python_TETRA_DMO_2d5edc48bd3df37779d08ae6771ac8a9::@4bcd1f02b4c854ac780d",
+					"jsonFile" : "target-pygen_python_TETRA_DMO_2d5edc48bd3df37779d08ae6771ac8a9-Debug-cc0ac676fc845a2dee0b.json",
+					"name" : "pygen_python_TETRA_DMO_2d5edc48bd3df37779d08ae6771ac8a9",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-9a5c986b7bfa85c2d466.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build",
+		"source" : "/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

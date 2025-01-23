@@ -1,0 +1,1087 @@
+options:
+  parameters:
+    author: ctn008
+    catch_exceptions: 'True'
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: 'channelDecoder & SpeechDecoder
+
+      changed to SYNC_BLOCK'
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: tetraDMO_Decoder_v1
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: tetraDMO_Decoder_v1
+    window_size: (1000,1000)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: audio_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '8000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [592, 12.0]
+    rotation: 0
+    state: enabled
+- name: next_view
+  id: variable_qtgui_toggle_button_msg
+  parameters:
+    comment: ''
+    gui_hint: ''
+    initPressed: 'False'
+    label: ''
+    outputmsgname: value
+    pressBackgroundColor: default
+    pressFontColor: default
+    pressed: '1'
+    relBackgroundColor: default
+    relFontColor: default
+    released: '0'
+    type: bool
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [304, 12.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '36000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 12]
+    rotation: 0
+    state: enabled
+- name: view_step
+  id: variable
+  parameters:
+    comment: ''
+    value: 512*1
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [504, 12.0]
+    rotation: 0
+    state: enabled
+- name: TETRA_DMO_MAC_DECODER_1
+  id: TETRA_DMO_MAC_DECODER
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    parametername_replace_me: You need to fill in your grc/TETRA_DMO_MAC_DECODER.block.yaml
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [320, 300.0]
+    rotation: 0
+    state: enabled
+- name: audio_sink_0
+  id: audio_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    device_name: ''
+    num_inputs: '1'
+    ok_to_block: 'True'
+    samp_rate: audio_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1296, 164.0]
+    rotation: 0
+    state: enabled
+- name: blocks_add_const_vxx_0
+  id: blocks_add_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '-2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [952, 348.0]
+    rotation: 0
+    state: disabled
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [760, 324.0]
+    rotation: 0
+    state: disabled
+- name: blocks_char_to_float_1
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [736, 428.0]
+    rotation: 0
+    state: disabled
+- name: blocks_char_to_float_2
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [320, 572.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_sink_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/von/test/output_sound/out_sound.out
+    type: short
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [920, 244.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_sink_1
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: /home/von/test/test_sample.uint8
+    type: byte
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [728, 516.0]
+    rotation: 0
+    state: disabled
+- name: blocks_file_source_0
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/von/new/tetraDMO-Receiver/DmoDecoder/tetraDMO_s36kBit_demod_samples.uint8
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 132.0]
+    rotation: 0
+    state: enabled
+- name: blocks_file_source_1
+  id: blocks_file_source
+  parameters:
+    affinity: ''
+    alias: ''
+    begin_tag: pmt.PMT_NIL
+    comment: ''
+    file: /home/von/test/speech_frame_window.uint8
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'False'
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [632, 180.0]
+    rotation: 0
+    state: disabled
+- name: blocks_multiply_const_vxx_0_0
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: '4'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1176, 236.0]
+    rotation: 0
+    state: enabled
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: samp_rate
+    type: byte
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [96, 324.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_0_0_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\nsync block, 480 samples in, 480\
+      \ samples out\n\"\"\"\n\nimport numpy as np\nfrom gnuradio import gr\nfrom ctypes\
+      \ import *\n\nIN_STEP = 432\nOUT_STEP = 276\n\nclass tetraChDecoder(gr.basic_block):\n\
+      \    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraChDecoderLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
+      \                          ndim=1,\n                                       \
+      \   flags=\"C\")\n    lib.Channel_Decoding.argtypes = [c_int16, c_int16, ND_POINTER,\
+      \ ND_POINTER]\n    lib.Channel_Decoding.restype = c_int16\n    lib.Desinterleaving_Signalling.argtypes\
+      \ = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Signalling.restype = c_int16\n\
+      \    lib.Desinterleaving_Speech.argtypes = [ND_POINTER, ND_POINTER]\n    lib.Desinterleaving_Speech.restype\
+      \ = c_int16\n\n\n    def Channel_Decoding(first_pass, Frame_Stealing, Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Channel_Decoding(first_pass,\
+      \ Frame_Stealing, Input_Frame, Output_Frame)\n        return res\n\n    def\
+      \ Desinterleaving_Signalling(Input_Frame, Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Signalling(Input_Frame,\
+      \ Output_Frame)\n        return res\n\n    def Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame):\n        res = tetraChDecoder.lib.Desinterleaving_Speech(Input_Frame,\
+      \ Output_Frame)\n        return res\n    \n    def __init__(self):\n       \
+      \ gr.basic_block.__init__(\n            self,\n            name='Tetra ACELP\\\
+      nChannel Decoder',   # will show up in GRC\n            in_sig =[np.uint8],\n\
+      \            out_sig=[np.int16]\n        )\n        self.Loop_counter = 0\n\
+      \        self.first_pass = True\n        self.Frame_stealing = False\n     \
+      \   self.bfi1 = 0\n        self.bfi2 = 0\n        self.Reordered_array     \
+      \    = np.array([0]*286, dtype = 'int16')\n        self.Interleaved_coded_array\
+      \ = np.array([0]*432, dtype = 'int16')\n        self.Coded_array           \
+      \  = np.array([0]*432, dtype = 'int16')\n     \n    def general_work(self, input_items,\
+      \ output_items):\n        in_index = 0\n        out_index = 0\n\n        while\
+      \ (len(input_items[0]) >= in_index + IN_STEP) and (len(output_items[0]) >= out_index\
+      \ + OUT_STEP) :\n\n            # \"0\" = 127, \"1\" = -127\n            if type(input_items[0][0])\
+      \ == np.uint8:\n                for i in range(432):\n                    self.Interleaved_coded_array[i]\
+      \ = -127 if input_items[0][in_index+i] else 127\n            else: #int16  \
+      \                 \n                self.Interleaved_coded_array[0:432] = input_items[0][in_index:in_index+432]\n\
+      \                                                        \n            #self.Frame_stealing\
+      \ = input_items[0][in_index + IN_STEP - 1]\n\n            if self.Frame_stealing\
+      \ :\n                tetraChDecoder.Desinterleaving_Signalling(self.Interleaved_coded_array[216:],\
+      \ self.Coded_array[216:])\n                self.Coded_array[:216] = self.Interleaved_coded_array[:216]\n\
+      \            else:\n                tetraChDecoder.Desinterleaving_Speech(self.Interleaved_coded_array,\
+      \ self.Coded_array)\n\n            self.bfi1 = self.Frame_stealing\n       \
+      \     #if self.bfi1:\n            #    print(f\"Frame Nb %d was stolen\" %(self.Loop_counter+1))\n\
+      \n            bfi2 = tetraChDecoder.Channel_Decoding(self.first_pass, self.Frame_stealing,\
+      \ self.Coded_array, self.Reordered_array)\n            self.first_pass = False\n\
+      \n            if (self.Frame_stealing==0) and (self.bfi2==1):\n            \
+      \    self.bfi1 = 1\n\n            self.Loop_counter += 1\n            #if self.bfi2:\n\
+      \            #    print(f\"Frame Nb %d Bfi active\" %(self.Loop_counter+1))\n\
+      \n            output_items[0][out_index] = self.bfi1\n            output_items[0][out_index+1:out_index+138]\
+      \ = self.Reordered_array[0:137]\n            output_items[0][out_index+138]\
+      \ = self.bfi2\n            output_items[0][out_index+139:out_index+276] = self.Reordered_array[137:274]\n\
+      \n            #if (not self.bfi1) and (not self.bfi2):\n            #    print(self.Loop_counter,\
+      \ \"  full speech frame decoded ok\")\n\n            in_index += IN_STEP\n \
+      \           out_index += OUT_STEP\n            \n        self.consume(0, in_index)\n\
+      \        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Tetra ACELP\nChannel Decoder', 'tetraChDecoder', [], [('0', 'byte',
+      1)], [('0', 'short', 1)], '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [696, 84.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_0_1_0_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\nclass frameStep(gr.basic_block):  # other base\
+      \ classes are basic_block, decim_block, interp_block\n    \"\"\"Embedded Python\
+      \ Block example - a simple multiply const\"\"\"\n\n    def __init__(self, step\
+      \ = 4800, change = False):  # only default arguments here\n        \"\"\"arguments\
+      \ to this function show up as parameters in GRC\"\"\"\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='Push_per_Frame',   # will show up in GRC\n\
+      \            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n        )\n\
+      \        # if an attribute with the same name as a parameter is found,\n   \
+      \     # a callback is registered (properties work, too).\n        self.step=\
+      \ step\n        self.change = change\n        self.prechange = False\n\n   \
+      \ def general_work(self, input_items, output_items):\n        \"\"\"example:\
+      \ multiply with constant\"\"\"\n        next_view = False\n        if self.change\
+      \ != self.prechange :\n            #print(\"Next View\")\n            next_view\
+      \ = True\n            self.prechange = self.change\n        if next_view and\
+      \ (len(output_items[0]) >= self.step) and (len(input_items[0]) >= self.step):\n\
+      \            output_items[0][:self.step] = input_items[0][:self.step]\n    \
+      \        #DEBUG output_txt = ''\n            #DEBUG for i in range(self.step):\n\
+      \            #DEBUG output_txt += '1' if output_items[0][i] else '0'\n     \
+      \       self.consume(0, self.step)\n            #DEBUG print (output_txt)\n\
+      \            return self.step\n        else:\n            return 0\n"
+    affinity: ''
+    alias: ''
+    change: next_view
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    step: view_step
+  states:
+    _io_cache: ('Push_per_Frame', 'frameStep', [('step', '4800'), ('change', 'False')],
+      [('0', 'byte', 1)], [('0', 'byte', 1)], 'Embedded Python Block example - a simple
+      multiply const', ['change', 'step'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [360, 228.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_0_2_0_0
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nL_FRAME     = 240\nSERIAL_SIZE\
+      \ = 138\nPRM_SIZE    = 24\n\nsynth = np.array([0]*L_FRAME, dtype ='int16') \
+      \     #/* Synthesis              */\nparm  = np.array([0]*PRM_SIZE, dtype ='int16')\
+      \     #/* Synthesis parameters   */\nserial= np.array([0]*SERIAL_SIZE, dtype\
+      \ ='int16')  #/* Serial stream          */\n\nclass tetraSpDecoder(gr.basic_block):\n\
+      \    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraSrcDecoderLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
+      \                          ndim=1,\n                                       \
+      \   flags=\"C\")\n    lib.Bits2prm_Tetra.argtypes = [ND_POINTER, ND_POINTER]\n\
+      \    lib.Decod_Tetra.argtypes    = [ND_POINTER, ND_POINTER]\n    lib.Post_Process.argtypes\
+      \   = [ND_POINTER, c_int16]\n\n    def Init_Decod_Tetra():\n        tetraSpDecoder.lib.Init_Decod_Tetra()\n\
+      \        \n    def Bits2prm_Tetra(serial, parm):\n        tetraSpDecoder.lib.Bits2prm_Tetra(serial,\
+      \ parm)\n\n    def Decod_Tetra(parm, synth):\n        tetraSpDecoder.lib.Decod_Tetra(parm,\
+      \ synth)\n\n    def Post_Process(synth, L_frame):    \n        tetraSpDecoder.lib.Post_Process(synth,\
+      \ L_frame)\n\n    \n    def __init__(self):\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='Tetra ACELP\\nSpeech Decoder',   # will\
+      \ show up in GRC\n            in_sig=[np.int16],\n            out_sig=[np.float32]\n\
+      \        )\n        self.frame = 0\n\n    def general_work(self, input_items,\
+      \ output_items):\n        cod_ptr = 0\n        raw_ptr = 0\n\n        tetraSpDecoder.Init_Decod_Tetra()\n\
+      \        while (cod_ptr + SERIAL_SIZE <= len(input_items[0])) and (raw_ptr +\
+      \ L_FRAME <= len(output_items[0])):\n\n            for j in range (SERIAL_SIZE):\n\
+      \                serial[j] = input_items[0][cod_ptr+j]\n                \n \
+      \           cod_ptr += SERIAL_SIZE\n            self.frame +=1\n           \
+      \ \n            #print(\"frame= %d\" %self.frame)\n            tetraSpDecoder.Bits2prm_Tetra(serial,\
+      \ parm)\n            tetraSpDecoder.Decod_Tetra(parm, synth)\n            tetraSpDecoder.Post_Process(synth,\
+      \ L_FRAME)\n\n            for j in range (L_FRAME):\n                output_items[0][raw_ptr+j]\
+      \ = synth[j] / 32768\n            \n            raw_ptr += L_FRAME\n       \
+      \ self.consume(0, cod_ptr)\n        return raw_ptr\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('Tetra ACELP\nSpeech Decoder', 'tetraSpDecoder', [], [('0', 'short',
+      1)], [('0', 'float', 1)], '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [920, 52.0]
+    rotation: 0
+    state: enabled
+- name: epy_block_1
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nDSB = 1\nDNB = 2\nDNB_SF =\
+      \ 3\nINACTIVE = 0\nBURST_LEN = 510\nIN_STEP = 512\nOUT_STEP = 480\n\nclass tetraTime():\n\
+      \    def __init__(self):\n        self.tn = 1\n        self.fn = 1\n       \
+      \ self.mn = 1\n    def timeIncrease(self):\n        self.tn += 1\n        if\
+      \ self.tn > 4:\n            self.tn -= 4\n            self.fn += 1\n       \
+      \ if self.fn > 18:\n            self.fn -= 18\n            self.mn += 1\n  \
+      \      \nclass tetraCell():\n    def __init__(self):\n        self.m_mcc   \
+      \            = 0\n        self.m_mnc               = 0\n        self.m_colorCode\
+      \         = 0\n        self.m_scramblingCode    = 0\n        self.m_locationArea\
+      \      = 0\n\n        self.m_downlinkFrequency = 0\n        self.m_uplinkFrequency\
+      \   = 0\n\n        self.m_cellInformationsAcquired = False\n        \n    def\
+      \ updateScramblingCode(self, sourceAddress, mnIdentity): \n        self.m_mcc\
+      \ = mnIdentity >> 14\n        self.m_mnc = mnIdentity & 0x3ff\n\n        self.m_scramblingCode\
+      \ = sourceAddress | ((mnIdentity & 0x003f) << 24)\n        self.m_scramblingCode\
+      \ = (self.m_scramblingCode << 2) | 0x0003\n\n        self.m_cellInformationsAcquired\
+      \ = True\n\n    def getScramblingCode(self):\n        return self.m_scramblingCode\n\
+      \nclass lowerMac(gr.basic_block):\n\n    def __init__(self, lib= '/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so'):\n\
+      \        gr.basic_block.__init__(\n            self,\n            name='serviceLowerMAC\\\
+      nserviceUpperMAC',   # will show up in GRC\n            in_sig=[np.uint8],\n\
+      \            out_sig=[np.uint8]\n        )\n        self.libname = lib\n   \
+      \     self.burst_cnt = 0\n        self.commType = 0\n\n        self.m_tetraTime\
+      \ = tetraTime()\n        self.m_tetraCell = tetraCell()\n        self.m_sfStolenFlag\
+      \ = False\n        \n        self.fragFlag = 0\n        self.destinAddrType\
+      \ = 0\n        self.destinAddress  = 0\n        self.sourceAddrType = 0\n  \
+      \      self.sourceAddress  = 0\n        self.mnIdentity     = 0\n\n        self.ND_POINTER\
+      \ = np.ctypeslib.ndpointer(dtype=np.uint8, ndim=1,flags=\"C\")\n        self.lib\
+      \ = cdll.LoadLibrary(self.libname) # class level loading lib\n        self.lib.descramble_raw.argtypes\
+      \ = [self.ND_POINTER, c_size_t, self.ND_POINTER, c_size_t, c_size_t]\n     \
+      \   self.lib.descramble_raw.restype = c_size_t\n        self.lib.deinterleave_raw.argtypes\
+      \ = [self.ND_POINTER, c_size_t, self.ND_POINTER, c_size_t, c_size_t]\n     \
+      \   self.lib.deinterleave_raw.restype = c_size_t\n        self.lib.depuncture23_raw.argtypes\
+      \ = [self.ND_POINTER, c_size_t, self.ND_POINTER, c_size_t]\n        self.lib.depuncture23_raw.restype\
+      \ = c_size_t\n        self.lib.viterbiDecode1614_raw.argtypes = [self.ND_POINTER,\
+      \ c_size_t, self.ND_POINTER]\n        self.lib.viterbiDecode1614_raw.restype\
+      \ = c_size_t\n        self.lib.checkCrc16Ccitt_raw.argtypes = [self.ND_POINTER,\
+      \ c_size_t, c_size_t]\n        self.lib.checkCrc16Ccitt_raw.restype = c_bool\n\
+      \    \n\n    def descramble(self, data, size, scramblingCode):\n        res\
+      \ = np.array([0]*size, dtype='uint8')\n        res_len = self.lib.descramble_raw(data,\
+      \ len(data), res, size, scramblingCode)\n        return res\n\n    def deinterleave(self,\
+      \ data, K, a):\n        res = np.array([0]*K, dtype='uint8')\n        res_len\
+      \ = self.lib.deinterleave_raw(data, len(data), res, K, a)\n        return res\n\
+      \        \n    def depuncture23(self, data, length):\n        res = np.array([0]*(4*length*2//3),\
+      \ dtype='uint8')\n        res_len = self.lib.depuncture23_raw(data, len(data),\
+      \ res, length)\n        return res\n\n    def viterbiDecode1614(self, data):\n\
+      \        res = np.array([0]*(len(data)//4), dtype='uint8')\n        res_len\
+      \ = self.lib.viterbiDecode1614_raw(data, len(data), res)\n        return res\n\
+      \n    def checkCrc16Ccitt(self, data, length):\n        res_value = self.lib.checkCrc16Ccitt_raw(data,\
+      \ len(data), length)\n        return res_value\n\n    def getValue(pdu, pos,\
+      \ len):\n        temp = 0\n        for i in range(len):\n            temp =\
+      \ temp * 2 + pdu[pos+i]\n        return temp\n    \n           \n    def processDmacSync(self,\
+      \ pdu):\n        self.commType       = lowerMac.getValue(pdu, 6, 2)\n      \
+      \  self.m_tetraTime.tn = lowerMac.getValue(pdu, 12, 2) + 1\n        self.m_tetraTime.fn\
+      \ = lowerMac.getValue(pdu, 14, 5)\n        self.fragFlag       = lowerMac.getValue(pdu,\
+      \ 71, 1)\n\n        #DEBUG print(\"TN:FN\", self.m_tetraTime.tn,':', self.m_tetraTime.fn,\
+      \ \" fragFlag: \", self.fragFlag)\n        \n        pos = 76 if self.fragFlag\
+      \ else 72\n        self.frameCntDn     = lowerMac.getValue(pdu, pos, 2)\n  \
+      \      pos += 2\n        self.destinAddrType = lowerMac.getValue(pdu, pos, 2)\n\
+      \        pos += 2\n        if self.destinAddrType != 2:\n            self.destinAddress\
+      \ = lowerMac.getValue(pdu, pos, 24)\n            pos += 24\n        self.sourceAddrType\
+      \ = lowerMac.getValue(pdu, pos, 2)\n        pos += 2\n        if self.sourceAddrType\
+      \ != 2:\n            self.sourceAddress = lowerMac.getValue(pdu, pos, 24)\n\
+      \            pos += 24\n        if (self.commType == 0) or (self.commType ==\
+      \ 1):\n            self.mnIdentity = lowerMac.getValue(pdu, pos, 24)\n     \
+      \       pos += 24\n        if self.mnIdentity and self.sourceAddress :\n   \
+      \         print(\"scrambling code is: \", self.m_tetraCell.getScramblingCode())\n\
+      \            self.m_tetraCell.updateScramblingCode(self.sourceAddress, self.mnIdentity)\n\
+      \n        #DEBUG print(\"Scrambling code: \", hex(self.m_tetraCell.getScramblingCode())\
+      \ )\n        #DEBUG print(\"Source address: \", self.sourceAddress, \"Destin\
+      \ address: \", self.destinAddress)\n        \n    def general_work(self, input_items,\
+      \ output_items):\n        in_index = 0\n        out_index = 0\n        while\
+      \ (len(input_items[0]) >= in_index + IN_STEP) and (len(output_items[0]) >= out_index\
+      \ + OUT_STEP):\n            # print(\"MN:FN:TN = \", self.m_tetraTime.mn,\"\
+      :\",self.m_tetraTime.fn,\":\",self.m_tetraTime.tn, \" \", end ='')\n       \
+      \     if input_items[0][in_index+BURST_LEN] == DSB:\n                bkn1 =\
+      \ np.array(input_items[0][in_index+34+94 :in_index+34+94 +120])\n          \
+      \      bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \n                bkn1 = self.descramble(bkn1, 120, 0x03)\n                bkn1\
+      \ = self.deinterleave(bkn1, 120, 11)\n                bkn1 = self.depuncture23(bkn1,\
+      \ 120)\n                bkn1 = self.viterbiDecode1614(bkn1)\n\n            \
+      \    bkn2 = self.descramble(bkn2, 216, 0x03)\n                bkn2 = self.deinterleave(bkn2,\
+      \ 216, 101)\n                bkn2 = self.depuncture23(bkn2, 216)\n         \
+      \       bkn2 = self.viterbiDecode1614(bkn2)\n\n                bkn1crc = self.checkCrc16Ccitt(bkn1,\
+      \ 76)\n                bkn2crc = self.checkCrc16Ccitt(bkn2, 140)\n         \
+      \       \n                if (bkn1crc==False) or (bkn2crc==False):\n       \
+      \             pass\n                    print(\"DSB \", \"CRC: \", bkn1crc,\
+      \ bkn2crc)\n                else:\n                    print(\"DSB\")\n    \
+      \                bkn1 = np.concatenate((bkn1[:60], bkn2[:124]))\n          \
+      \          self.processDmacSync( bkn1 )\n                print(\"input_items:\
+      \ \", in_index, \"\\n\")\n                print(\"output_items: \", out_index,\
+      \ \"\\n\")\n\n                    \n            elif input_items[0][in_index+BURST_LEN]\
+      \ == DNB:\n                bkn1 = np.array(input_items[0][in_index+34+14 :in_index+34+14\
+      \ +216])\n                bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \                bkn1 = np.concatenate((bkn1, bkn2))\n                bkn1 =\
+      \ self.descramble(bkn1, 432, self.m_tetraCell.getScramblingCode())\n       \
+      \         \n                print(\"DNB\")\n                output_items[0][out_index:out_index+len(bkn1)]\
+      \ = bkn1\n                out_index += OUT_STEP\n                output_items[0][out_index-1]\
+      \ = 0 # set SPEECH FRAME\n\n            elif input_items[0][in_index+BURST_LEN]\
+      \ == DNB_SF:\n                bkn1ValidFlag = False\n                bkn2ValidFlag\
+      \ = False\n\n                # BKN1 block - DMAC STCH \n                bkn1\
+      \ = np.array(input_items[0][in_index+34+14 :in_index+34+14 +216])\n        \
+      \        bkn1 = self.descramble(bkn1, 216, self.m_tetraCell.getScramblingCode())\n\
+      \                bkn1 = self.deinterleave(bkn1, 216, 101)                  \
+      \               \n                bkn1 = self.depuncture23(bkn1, 216)      \
+      \                                \n                bkn1 = self.viterbiDecode1614(bkn1)\
+      \                                      \n                if (self.checkCrc16Ccitt(bkn1,\
+      \ 140)) :\n                    bkn1 = np.array(bkn1[:124])\n               \
+      \     bkn1ValidFlag = True\n\n                # BKN2 block - DMAC STCH or TCH/S\n\
+      \                bkn2 = np.array(input_items[0][in_index+34+252:in_index+34+252+216])\n\
+      \                bkn2 = self.descramble(bkn2, 216, self.m_tetraCell.getScramblingCode())\n\
+      \                bkn2_uplane = np.array(bkn2)\n                bkn2 = self.deinterleave(bkn2,\
+      \ 216, 101)\n                bkn2 = self.depuncture23(bkn2, 216)\n         \
+      \       bkn2 = self.viterbiDecode1614(bkn2)         \n                if (self.checkCrc16Ccitt(bkn2,\
+      \ 140)):         # check CRC if FALSE ==> TCH/S\n                    bkn2 =\
+      \ np.array(bkn2[:124])\n                    bkn2ValidFlag = True\n\n       \
+      \         print(\"DNB_SF\")\n            \n                if (bkn1ValidFlag):\n\
+      \                    pass # serviceUpperMac(Pdu(bkn1), DSTCH);             \
+      \                  // first block is stolen for C or U signalling\n        \
+      \        else:    # for debug purpose - display if CRC errors found\n      \
+      \              print(f\"DNB_SF Burst CRC check errors found BKN1 TN/FN/MN: %u/%u/%u.\
+      \ \\n\\n\" % (self.m_tetraTime.tn, self.m_tetraTime.fn, self.m_tetraTime.mn))\n\
+      \                \n                output_items[0][out_index:out_index+OUT_STEP]\
+      \ = np.array([0]*OUT_STEP, dtype='uint8')\n                \n              \
+      \  if (self.m_sfStolenFlag):        # if second-half slot is also stolen\n \
+      \                   if (bkn2ValidFlag):\n                        pass #serviceUpperMac(Pdu(bkn2),\
+      \ DSTCH);                           // second block also stolen, reset flag\n\
+      \                    else:\n                        print(f\"DNB_SF Burst CRC\
+      \ check errors found BKN2 TN/FN/MN: %u/%u/%u. \\n\\n\" %(self.m_tetraTime.tn,\
+      \ self.m_tetraTime.fn, self.m_tetraTime.mn))                    \n         \
+      \       else:\n                    output_items[0][out_index+216:out_index+432]\
+      \ = bkn2_uplane\n                print(\"input_items: \", in_index, \"\\n\"\
+      )\n                print(\"output_items: \", out_index, \"\\n\")\n         \
+      \       out_index += OUT_STEP\n                output_items[0][out_index-1]\
+      \ = 1 # set STOLEN FRAME                \n            else:\n              \
+      \  pass\n                #DEBUG print(\"Inactive\")\n\n            in_index\
+      \ += IN_STEP\n            self.burst_cnt += 1\n            self.m_tetraTime.timeIncrease()\n\
+      \n        self.consume(0, in_index) #consume port 0 input\n        return out_index\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    lib: '''/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so'''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('serviceLowerMAC\nserviceUpperMAC', 'lowerMac', [('lib', "'/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so'")],
+      [('0', 'byte', 1)], [('0', 'byte', 1)], '', ['lib'])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [440, 124.0]
+    rotation: 0
+    state: disabled
+- name: epy_block_2
+  id: epy_block
+  parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\nfrom ctypes import *\n\nclass blk(gr.basic_block):\n\
+      \    codingLib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so')\
+      \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
+      \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, \n                \
+      \                      ndim=1,\n                                      flags=\"\
+      C\")\n    def service_mac(in_data, in_len, out_data):\n        blk.codingLib.service_mac.argtypes\
+      \ = [blk.ND_POINTER, c_size_t, blk.ND_POINTER]\n        blk.codingLib.service_mac.restype\
+      \ = c_size_t\n        res = blk.codingLib.service_mac(in_data, in_len, out_data)\n\
+      \        return res\n\n\n    def __init__(self):\n        gr.basic_block.__init__(\n\
+      \            self,\n            name='DMO\\nBurst SYNC',   # will show up in\
+      \ GRC\n            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n    \
+      \    )\n\n    def general_work(self, input_items, output_items):\n        in_len\
+      \ = len(input_items[0])\n        out_len = len(output_items[0])\n        consume_len\
+      \ = in_len if (in_len < (out_len - 510)) else (out_len - 510)\n        out_items\
+      \ = blk.service_mac(input_items[0], consume_len, output_items[0])\n        self.consume(0,\
+      \ consume_len)\n        return out_items\n"
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    _io_cache: ('DMO\nBurst SYNC', 'blk', [], [('0', 'byte', 1)], [('0', 'byte', 1)],
+      '', [])
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 412.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '2'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '3'
+    ymin: '-3'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1152, 428.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_time_sink_x_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: audio
+    label10: Signal 10
+    label2: Service lowerMac
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"speech output"'
+    nconnections: '1'
+    size: '2000'
+    srate: audio_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.2'
+    ymin: '-1.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1304, 316.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: audio
+    label10: Signal 10
+    label2: Service lowerMac
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"frame"'
+    nconnections: '1'
+    size: 520*4
+    srate: audio_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.2'
+    ymin: '-1.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [552, 580.0]
+    rotation: 0
+    state: disabled
+- name: qtgui_time_sink_x_0_0_0_0_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: audio
+    label10: Signal 10
+    label2: Service lowerMac
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"frame_testing"'
+    nconnections: '1'
+    size: '1024'
+    srate: audio_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.2'
+    ymin: '-1.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1056, 564.0]
+    rotation: 0
+    state: disabled
+
+connections:
+- [TETRA_DMO_MAC_DECODER_1, '0', epy_block_0_0_0, '0']
+- [blocks_add_const_vxx_0, '0', qtgui_time_sink_x_0, '0']
+- [blocks_char_to_float_0, '0', blocks_add_const_vxx_0, '0']
+- [blocks_char_to_float_1, '0', qtgui_time_sink_x_0, '1']
+- [blocks_char_to_float_1, '0', qtgui_time_sink_x_0_0_0_0_0, '0']
+- [blocks_char_to_float_2, '0', qtgui_time_sink_x_0_0_0_0, '0']
+- [blocks_file_source_0, '0', TETRA_DMO_MAC_DECODER_1, '0']
+- [blocks_file_source_0, '0', blocks_char_to_float_2, '0']
+- [blocks_file_source_0, '0', blocks_throttle2_0, '0']
+- [blocks_file_source_1, '0', epy_block_0_0_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', audio_sink_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', qtgui_time_sink_x_0_0_0, '0']
+- [blocks_throttle2_0, '0', TETRA_DMO_MAC_DECODER_1, '0']
+- [blocks_throttle2_0, '0', blocks_char_to_float_2, '0']
+- [blocks_throttle2_0, '0', epy_block_2, '0']
+- [epy_block_0_0_0, '0', blocks_file_sink_0, '0']
+- [epy_block_0_0_0, '0', epy_block_0_2_0_0, '0']
+- [epy_block_0_1_0_0, '0', epy_block_1, '0']
+- [epy_block_0_2_0_0, '0', blocks_multiply_const_vxx_0_0, '0']
+- [epy_block_1, '0', blocks_char_to_float_0, '0']
+- [epy_block_2, '0', blocks_char_to_float_1, '0']
+- [epy_block_2, '0', epy_block_0_0_0, '0']
+
+metadata:
+  file_format: 1
+  grc_version: 3.10.10.0
