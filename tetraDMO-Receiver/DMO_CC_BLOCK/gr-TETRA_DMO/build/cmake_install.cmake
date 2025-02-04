@@ -1,4 +1,4 @@
-# Install script for directory: /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
+# Install script for directory: /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -43,22 +43,22 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/gnuradio-TETRA_DMO" TYPE FILE FILES "/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/cmake/Modules/gnuradio-TETRA_DMOConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/gnuradio-TETRA_DMO" TYPE FILE FILES "/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/cmake/Modules/gnuradio-TETRA_DMOConfig.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/manifests/TETRA_DMO" TYPE FILE RENAME "MANIFEST-1.0.00.yml" FILES "/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/MANIFEST.yml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/manifests/TETRA_DMO" TYPE FILE RENAME "MANIFEST-1.0.00.yml" FILES "/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/MANIFEST.yml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/include/gnuradio/TETRA_DMO/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/lib/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/apps/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/examples/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/docs/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/cmake_install.cmake")
-  include("/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/grc/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/include/gnuradio/TETRA_DMO/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/lib/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/apps/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/examples/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/docs/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/cmake_install.cmake")
+  include("/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/grc/cmake_install.cmake")
 
 endif()
 
@@ -70,5 +70,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

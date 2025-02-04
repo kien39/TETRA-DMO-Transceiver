@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
+CMAKE_SOURCE_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
+CMAKE_BINARY_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/uninstall.dir/compiler_depend.make
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	/usr/bin/cmake -P /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/cmake_uninstall.cmake
+	/usr/bin/cmake -P /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/cmake_uninstall.cmake
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 

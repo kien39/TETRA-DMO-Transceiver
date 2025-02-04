@@ -13,7 +13,7 @@ import pmt
 
 class DmoEncoder(gr.basic_block):
 
-    MacEncoderLib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Transmitter/libs/MacEncoderLib_v1.so')
+    MacEncoderLib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Transmitter/libs/MacEncoderLib_v1.so')
     ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, 
                                               ndim=1,
                                               flags="C")

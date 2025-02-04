@@ -14,7 +14,7 @@ SERIAL_SIZE = 138
 ANA_SIZE    =  23
 
 class SrcChCoder(gr.basic_block):
-    SrcCoderlib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Transmitter/libs/tetraSrcCoderLib.so')
+    SrcCoderlib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Transmitter/libs/tetraSrcCoderLib.so')
 
     # C-type corresponding to numpy array 
     ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, 
@@ -47,7 +47,7 @@ class SrcChCoder(gr.basic_block):
     def Post_Process(synth, L_frame):    
         SrcChCoder.SrcCoderlib.Post_Process(synth, L_frame)
 
-    ChCoderlib = cdll.LoadLibrary('/home/ctn008/tetraDMO-Transmitter/libs/tetraChCoderLib.so')
+    ChCoderlib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Transmitter/libs/tetraChCoderLib.so')
 
     ChCoderlib.Channel_Encoding.argtypes    = [c_int16, c_int16, ND_POINTER, ND_POINTER]
     ChCoderlib.Interleaving_Signalling.argtypes = [ND_POINTER, ND_POINTER]

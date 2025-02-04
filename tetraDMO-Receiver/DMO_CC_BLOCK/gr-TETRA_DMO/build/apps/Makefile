@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
+CMAKE_SOURCE_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
+CMAKE_BINARY_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,14 +142,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/apps//CMakeFiles/progress.marks
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles 0
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/apps//CMakeFiles/progress.marks
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/clean
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/clean
 .PHONY : clean
 
 # The main clean target
@@ -158,17 +158,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/preinstall
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/preinstall
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -195,6 +195,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

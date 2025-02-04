@@ -23,7 +23,8 @@ import signal
 from PyQt5 import Qt
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
-from gnuradio import iio
+import osmosdr
+import time
 import pluto_DmoTransmitter_v1_0_epy_block_0 as epy_block_0  # embedded python block
 import pluto_DmoTransmitter_v1_0_epy_block_0_0 as epy_block_0_0  # embedded python block
 import pluto_DmoTransmitter_v1_0_epy_block_1 as epy_block_1  # embedded python block
@@ -73,7 +74,7 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
         self.ptt_on = ptt_on = 0
         self.num_tap = num_tap = 11
         self.frequency_hz = frequency_hz = 390000000
-        self.freq_adjust = freq_adjust = 4000
+        self.freq_adjust = freq_adjust = 0
         self.audio_rate = audio_rate = 8000
 
         ##################################################
@@ -97,7 +98,7 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
             self.top_grid_layout.setRowStretch(r, 1)
         for c in range(0, 1):
             self.top_grid_layout.setColumnStretch(c, 1)
-        self._freq_adjust_range = qtgui.Range(-7000, 7000, 10, 4000, 200)
+        self._freq_adjust_range = qtgui.Range(-7000, 7000, 10, 0, 200)
         self._freq_adjust_win = qtgui.RangeWidget(self._freq_adjust_range, self.set_freq_adjust, "'freq_adjust'", "counter_slider", float, QtCore.Qt.Horizontal)
         self.top_layout.addWidget(self._freq_adjust_win)
         self.qtgui_time_sink_x_1_0_0 = qtgui.time_sink_c(
@@ -206,6 +207,18 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
             self.top_grid_layout.setRowStretch(r, 1)
         for c in range(4, 5):
             self.top_grid_layout.setColumnStretch(c, 1)
+        self.osmosdr_sink_0 = osmosdr.sink(
+            args="numchan=" + str(1) + " " + ""
+        )
+        self.osmosdr_sink_0.set_time_unknown_pps(osmosdr.time_spec_t())
+        self.osmosdr_sink_0.set_sample_rate(samp_rate)
+        self.osmosdr_sink_0.set_center_freq((frequency_hz+freq_adjust), 0)
+        self.osmosdr_sink_0.set_freq_corr(0, 0)
+        self.osmosdr_sink_0.set_gain(10, 0)
+        self.osmosdr_sink_0.set_if_gain(20, 0)
+        self.osmosdr_sink_0.set_bb_gain(20, 0)
+        self.osmosdr_sink_0.set_antenna('', 0)
+        self.osmosdr_sink_0.set_bandwidth(0, 0)
         self.mmse_resampler_xx_0 = filter.mmse_resampler_cc(0, (36/80))
         self.low_pass_filter_0_0 = filter.interp_fir_filter_ccf(
             decim,
@@ -216,13 +229,6 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
                 5000,
                 window.WIN_HAMMING,
                 6.76))
-        self.iio_pluto_sink_0 = iio.fmcomms2_sink_fc32('' if '' else iio.get_pluto_uri(), [True, True], int(32768), False)
-        self.iio_pluto_sink_0.set_len_tag_key('')
-        self.iio_pluto_sink_0.set_bandwidth(2000000)
-        self.iio_pluto_sink_0.set_frequency((frequency_hz+freq_adjust))
-        self.iio_pluto_sink_0.set_samplerate(samp_rate)
-        self.iio_pluto_sink_0.set_attenuation(0, 10)
-        self.iio_pluto_sink_0.set_filter_params('Auto', '', 0, 0)
         self.epy_block_1 = epy_block_1.Pi4DQPSK(envelope_in=False)
         self.epy_block_0_0 = epy_block_0_0.SrcChCoder(mic_gain=4)
         self.epy_block_0 = epy_block_0.DmoEncoder(show_txt=False, talkgroup_id=1001, radio_id=6081751, ptt=ptt_on)
@@ -236,12 +242,12 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
         self.connect((self.audio_source_0, 0), (self.epy_block_0_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_1, 0))
         self.connect((self.epy_block_0, 0), (self.blocks_char_to_float_0, 0))
-        self.connect((self.epy_block_0, 1), (self.epy_block_1, 1))
         self.connect((self.epy_block_0, 0), (self.epy_block_1, 0))
+        self.connect((self.epy_block_0, 1), (self.epy_block_1, 1))
         self.connect((self.epy_block_0_0, 0), (self.epy_block_0, 0))
         self.connect((self.epy_block_1, 0), (self.mmse_resampler_xx_0, 0))
         self.connect((self.epy_block_1, 0), (self.qtgui_time_sink_x_1_0_0, 0))
-        self.connect((self.low_pass_filter_0_0, 0), (self.iio_pluto_sink_0, 0))
+        self.connect((self.low_pass_filter_0_0, 0), (self.osmosdr_sink_0, 0))
         self.connect((self.mmse_resampler_xx_0, 0), (self.low_pass_filter_0_0, 0))
 
 
@@ -273,8 +279,8 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.iio_pluto_sink_0.set_samplerate(self.samp_rate)
         self.low_pass_filter_0_0.set_taps(firdes.low_pass((self.decim/2), self.samp_rate, 25000, 5000, window.WIN_HAMMING, 6.76))
+        self.osmosdr_sink_0.set_sample_rate(self.samp_rate)
 
     def get_samp_per_symbol(self):
         return self.samp_per_symbol
@@ -302,14 +308,14 @@ class pluto_DmoTransmitter_v1_0(gr.top_block, Qt.QWidget):
     def set_frequency_hz(self, frequency_hz):
         self.frequency_hz = frequency_hz
         Qt.QMetaObject.invokeMethod(self._frequency_hz_line_edit, "setText", Qt.Q_ARG("QString", eng_notation.num_to_str(self.frequency_hz)))
-        self.iio_pluto_sink_0.set_frequency((self.frequency_hz+self.freq_adjust))
+        self.osmosdr_sink_0.set_center_freq((self.frequency_hz+self.freq_adjust), 0)
 
     def get_freq_adjust(self):
         return self.freq_adjust
 
     def set_freq_adjust(self, freq_adjust):
         self.freq_adjust = freq_adjust
-        self.iio_pluto_sink_0.set_frequency((self.frequency_hz+self.freq_adjust))
+        self.osmosdr_sink_0.set_center_freq((self.frequency_hz+self.freq_adjust), 0)
 
     def get_audio_rate(self):
         return self.audio_rate

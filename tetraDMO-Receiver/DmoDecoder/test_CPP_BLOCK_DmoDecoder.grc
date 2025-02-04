@@ -107,7 +107,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [320, 300.0]
+    coordinate: [328, 300.0]
     rotation: 0
     state: enabled
 - name: audio_sink_0
@@ -127,75 +127,6 @@ blocks:
     coordinate: [1296, 164.0]
     rotation: 0
     state: enabled
-- name: blocks_add_const_vxx_0
-  id: blocks_add_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: '-2'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [952, 348.0]
-    rotation: 0
-    state: disabled
-- name: blocks_char_to_float_0
-  id: blocks_char_to_float
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale: '1'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [760, 324.0]
-    rotation: 0
-    state: disabled
-- name: blocks_char_to_float_1
-  id: blocks_char_to_float
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale: '1'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [736, 428.0]
-    rotation: 0
-    state: disabled
-- name: blocks_char_to_float_2
-  id: blocks_char_to_float
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale: '1'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [320, 572.0]
-    rotation: 0
-    state: disabled
 - name: blocks_file_sink_0
   id: blocks_file_sink
   parameters:
@@ -203,7 +134,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /home/von/test/output_sound/out_sound.out
+    file: /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/out_sound.out
     type: short
     unbuffered: 'False'
     vlen: '1'
@@ -214,24 +145,6 @@ blocks:
     coordinate: [920, 244.0]
     rotation: 0
     state: enabled
-- name: blocks_file_sink_1
-  id: blocks_file_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    append: 'False'
-    comment: ''
-    file: /home/von/test/test_sample.uint8
-    type: byte
-    unbuffered: 'False'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [728, 516.0]
-    rotation: 0
-    state: disabled
 - name: blocks_file_source_0
   id: blocks_file_source
   parameters:
@@ -239,7 +152,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/von/new/tetraDMO-Receiver/DmoDecoder/tetraDMO_s36kBit_demod_samples.uint8
+    file: /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DmoDecoder/tetraDMO_s36kBit_demod_samples.uint8
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -254,28 +167,6 @@ blocks:
     coordinate: [8, 132.0]
     rotation: 0
     state: enabled
-- name: blocks_file_source_1
-  id: blocks_file_source
-  parameters:
-    affinity: ''
-    alias: ''
-    begin_tag: pmt.PMT_NIL
-    comment: ''
-    file: /home/von/test/speech_frame_window.uint8
-    length: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    offset: '0'
-    repeat: 'False'
-    type: byte
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [632, 180.0]
-    rotation: 0
-    state: disabled
 - name: blocks_multiply_const_vxx_0_0
   id: blocks_multiply_const_vxx
   parameters:
@@ -294,34 +185,13 @@ blocks:
     coordinate: [1176, 236.0]
     rotation: 0
     state: enabled
-- name: blocks_throttle2_0
-  id: blocks_throttle2
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    ignoretag: 'True'
-    limit: auto
-    maximum: '0.1'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    samples_per_second: samp_rate
-    type: byte
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [96, 324.0]
-    rotation: 0
-    state: disabled
 - name: epy_block_0_0_0
   id: epy_block
   parameters:
     _source_code: "\"\"\"\nEmbedded Python Blocks:\nsync block, 480 samples in, 480\
       \ samples out\n\"\"\"\n\nimport numpy as np\nfrom gnuradio import gr\nfrom ctypes\
       \ import *\n\nIN_STEP = 432\nOUT_STEP = 276\n\nclass tetraChDecoder(gr.basic_block):\n\
-      \    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraChDecoderLib.so')\
+      \    lib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/codec/tetraChDecoderLib.so')\
       \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
       \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
       \                          ndim=1,\n                                       \
@@ -383,50 +253,6 @@ blocks:
     coordinate: [696, 84.0]
     rotation: 0
     state: enabled
-- name: epy_block_0_1_0_0
-  id: epy_block
-  parameters:
-    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
-      \ GRC will instantiate the first class it finds\nto get ports and parameters\
-      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
-      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
-      from gnuradio import gr\n\n\nclass frameStep(gr.basic_block):  # other base\
-      \ classes are basic_block, decim_block, interp_block\n    \"\"\"Embedded Python\
-      \ Block example - a simple multiply const\"\"\"\n\n    def __init__(self, step\
-      \ = 4800, change = False):  # only default arguments here\n        \"\"\"arguments\
-      \ to this function show up as parameters in GRC\"\"\"\n        gr.basic_block.__init__(\n\
-      \            self,\n            name='Push_per_Frame',   # will show up in GRC\n\
-      \            in_sig=[np.uint8],\n            out_sig=[np.uint8]\n        )\n\
-      \        # if an attribute with the same name as a parameter is found,\n   \
-      \     # a callback is registered (properties work, too).\n        self.step=\
-      \ step\n        self.change = change\n        self.prechange = False\n\n   \
-      \ def general_work(self, input_items, output_items):\n        \"\"\"example:\
-      \ multiply with constant\"\"\"\n        next_view = False\n        if self.change\
-      \ != self.prechange :\n            #print(\"Next View\")\n            next_view\
-      \ = True\n            self.prechange = self.change\n        if next_view and\
-      \ (len(output_items[0]) >= self.step) and (len(input_items[0]) >= self.step):\n\
-      \            output_items[0][:self.step] = input_items[0][:self.step]\n    \
-      \        #DEBUG output_txt = ''\n            #DEBUG for i in range(self.step):\n\
-      \            #DEBUG output_txt += '1' if output_items[0][i] else '0'\n     \
-      \       self.consume(0, self.step)\n            #DEBUG print (output_txt)\n\
-      \            return self.step\n        else:\n            return 0\n"
-    affinity: ''
-    alias: ''
-    change: next_view
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    step: view_step
-  states:
-    _io_cache: ('Push_per_Frame', 'frameStep', [('step', '4800'), ('change', 'False')],
-      [('0', 'byte', 1)], [('0', 'byte', 1)], 'Embedded Python Block example - a simple
-      multiply const', ['change', 'step'])
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [360, 228.0]
-    rotation: 0
-    state: disabled
 - name: epy_block_0_2_0_0
   id: epy_block
   parameters:
@@ -436,7 +262,7 @@ blocks:
       \     #/* Synthesis              */\nparm  = np.array([0]*PRM_SIZE, dtype ='int16')\
       \     #/* Synthesis parameters   */\nserial= np.array([0]*SERIAL_SIZE, dtype\
       \ ='int16')  #/* Serial stream          */\n\nclass tetraSpDecoder(gr.basic_block):\n\
-      \    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraSrcDecoderLib.so')\
+      \    lib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/codec/tetraSrcDecoderLib.so')\
       \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
       \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, \n                \
       \                          ndim=1,\n                                       \
@@ -629,10 +455,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [440, 124.0]
+    coordinate: [480, 412.0]
     rotation: 0
     state: disabled
-- name: epy_block_2
+- name: epy_block_2_0
   id: epy_block
   parameters:
     _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
@@ -640,7 +466,7 @@ blocks:
       \ of your block. The arguments to __init__  will\nbe the parameters. All of\
       \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
       from gnuradio import gr\nfrom ctypes import *\n\nclass blk(gr.basic_block):\n\
-      \    codingLib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so')\
+      \    codingLib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so')\
       \ # class level loading lib\n\n    # C-type corresponding to numpy array \n\
       \    ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, \n                \
       \                      ndim=1,\n                                      flags=\"\
@@ -666,104 +492,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 412.0]
-    rotation: 0
-    state: disabled
-- name: qtgui_time_sink_x_0
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: Signal 1
-    label10: Signal 10
-    label2: Signal 2
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '""'
-    nconnections: '2'
-    size: '1024'
-    srate: samp_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: float
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '3'
-    ymin: '-3'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1152, 428.0]
+    coordinate: [360, 172.0]
     rotation: 0
     state: disabled
 - name: qtgui_time_sink_x_0_0_0
@@ -863,224 +592,17 @@ blocks:
     coordinate: [1304, 316.0]
     rotation: 0
     state: enabled
-- name: qtgui_time_sink_x_0_0_0_0
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: audio
-    label10: Signal 10
-    label2: Service lowerMac
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"frame"'
-    nconnections: '1'
-    size: 520*4
-    srate: audio_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: float
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '1.2'
-    ymin: '-1.2'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [552, 580.0]
-    rotation: 0
-    state: disabled
-- name: qtgui_time_sink_x_0_0_0_0_0
-  id: qtgui_time_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
-    comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: audio
-    label10: Signal 10
-    label2: Service lowerMac
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '"frame_testing"'
-    nconnections: '1'
-    size: '1024'
-    srate: audio_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: float
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '1.2'
-    ymin: '-1.2'
-    yunit: '""'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1056, 564.0]
-    rotation: 0
-    state: disabled
 
 connections:
 - [TETRA_DMO_MAC_DECODER_1, '0', epy_block_0_0_0, '0']
-- [blocks_add_const_vxx_0, '0', qtgui_time_sink_x_0, '0']
-- [blocks_char_to_float_0, '0', blocks_add_const_vxx_0, '0']
-- [blocks_char_to_float_1, '0', qtgui_time_sink_x_0, '1']
-- [blocks_char_to_float_1, '0', qtgui_time_sink_x_0_0_0_0_0, '0']
-- [blocks_char_to_float_2, '0', qtgui_time_sink_x_0_0_0_0, '0']
 - [blocks_file_source_0, '0', TETRA_DMO_MAC_DECODER_1, '0']
-- [blocks_file_source_0, '0', blocks_char_to_float_2, '0']
-- [blocks_file_source_0, '0', blocks_throttle2_0, '0']
-- [blocks_file_source_1, '0', epy_block_0_0_0, '0']
+- [blocks_file_source_0, '0', epy_block_2_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', audio_sink_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', qtgui_time_sink_x_0_0_0, '0']
-- [blocks_throttle2_0, '0', TETRA_DMO_MAC_DECODER_1, '0']
-- [blocks_throttle2_0, '0', blocks_char_to_float_2, '0']
-- [blocks_throttle2_0, '0', epy_block_2, '0']
 - [epy_block_0_0_0, '0', blocks_file_sink_0, '0']
 - [epy_block_0_0_0, '0', epy_block_0_2_0_0, '0']
-- [epy_block_0_1_0_0, '0', epy_block_1, '0']
 - [epy_block_0_2_0_0, '0', blocks_multiply_const_vxx_0_0, '0']
-- [epy_block_1, '0', blocks_char_to_float_0, '0']
-- [epy_block_2, '0', blocks_char_to_float_1, '0']
-- [epy_block_2, '0', epy_block_0_0_0, '0']
+- [epy_block_2_0, '0', epy_block_0_0_0, '0']
 
 metadata:
   file_format: 1

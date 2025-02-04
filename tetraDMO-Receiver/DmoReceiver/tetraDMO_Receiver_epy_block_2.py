@@ -11,7 +11,7 @@ from gnuradio import gr
 from ctypes import *
 
 class blk(gr.basic_block):
-    codingLib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so') # class level loading lib
+    codingLib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DmoDecoder/libs/codingLib.so') # class level loading lib
 
     # C-type corresponding to numpy array 
     ND_POINTER = np.ctypeslib.ndpointer(dtype=np.uint8, 

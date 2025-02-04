@@ -6,7 +6,7 @@
 /usr/local/lib/libgnuradio-TETRA_DMO.so.1.0.0
 /usr/local/lib/libgnuradio-TETRA_DMO.so
 /usr/local/lib/cmake/gnuradio-TETRA_DMO/gnuradio-TETRA_DMOTargets.cmake
-/usr/local/lib/cmake/gnuradio-TETRA_DMO/gnuradio-TETRA_DMOTargets-debug.cmake
+/usr/local/lib/cmake/gnuradio-TETRA_DMO/gnuradio-TETRA_DMOTargets-release.cmake
 /usr/local/lib/cmake/gnuradio-TETRA_DMO/gnuradio-TETRA_DMOConfig.cmake
 /usr/local/lib/python3.10/dist-packages/gnuradio/TETRA_DMO/__init__.py
 /usr/local/lib/python3.10/dist-packages/gnuradio/TETRA_DMO/TETRA_DMO_python.cpython-310-x86_64-linux-gnu.so

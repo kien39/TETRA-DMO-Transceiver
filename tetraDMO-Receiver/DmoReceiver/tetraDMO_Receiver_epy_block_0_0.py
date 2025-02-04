@@ -11,7 +11,7 @@ IN_STEP = 432
 OUT_STEP = 276
 
 class tetraChDecoder(gr.basic_block):
-    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraChDecoderLib.so') # class level loading lib
+    lib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/codec/tetraChDecoderLib.so') # class level loading lib
 
     # C-type corresponding to numpy array 
     ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, 

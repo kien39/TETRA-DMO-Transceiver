@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
+CMAKE_SOURCE_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
+CMAKE_BINARY_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
 
 # Utility rule file for copy_module_for_tests.
 
@@ -67,7 +67,7 @@ include python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/compiler_depend.ma
 include python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/progress.make
 
 python/TETRA_DMO/CMakeFiles/copy_module_for_tests:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO && /usr/bin/cmake -E copy_directory /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/test_modules/gnuradio/TETRA_DMO/
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO && /usr/bin/cmake -E copy_directory /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/test_modules/gnuradio/TETRA_DMO/
 
 copy_module_for_tests: python/TETRA_DMO/CMakeFiles/copy_module_for_tests
 copy_module_for_tests: python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/build.make
@@ -78,10 +78,10 @@ python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/build: copy_module_for_tes
 .PHONY : python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/build
 
 python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/clean:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO && $(CMAKE_COMMAND) -P CMakeFiles/copy_module_for_tests.dir/cmake_clean.cmake
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO && $(CMAKE_COMMAND) -P CMakeFiles/copy_module_for_tests.dir/cmake_clean.cmake
 .PHONY : python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/clean
 
 python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/depend:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : python/TETRA_DMO/CMakeFiles/copy_module_for_tests.dir/depend
 

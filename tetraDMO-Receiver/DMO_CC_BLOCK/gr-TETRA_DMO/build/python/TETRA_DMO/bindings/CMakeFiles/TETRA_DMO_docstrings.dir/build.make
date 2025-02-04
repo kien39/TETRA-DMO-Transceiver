@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
+CMAKE_SOURCE_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
+CMAKE_BINARY_DIR = /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build
 
 # Utility rule file for TETRA_DMO_docstrings.
 
@@ -69,8 +69,8 @@ include python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/progress.m
 python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings: python/TETRA_DMO/bindings/docstring_status
 
 python/TETRA_DMO/bindings/docstring_status:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying TETRA_DMO docstring templates as pybind headers ..."
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings && /usr/bin/python3 /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/docs/doxygen/update_pydoc.py copy --bindings_dir /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO/bindings/docstrings --output_dir /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying TETRA_DMO docstring templates as pybind headers ..."
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings && /usr/bin/python3 /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/docs/doxygen/update_pydoc.py copy --bindings_dir /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO/bindings/docstrings --output_dir /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings
 
 TETRA_DMO_docstrings: python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings
 TETRA_DMO_docstrings: python/TETRA_DMO/bindings/docstring_status
@@ -82,10 +82,10 @@ python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/build: TETRA_DMO_d
 .PHONY : python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/build
 
 python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/clean:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings && $(CMAKE_COMMAND) -P CMakeFiles/TETRA_DMO_docstrings.dir/cmake_clean.cmake
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings && $(CMAKE_COMMAND) -P CMakeFiles/TETRA_DMO_docstrings.dir/cmake_clean.cmake
 .PHONY : python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/clean
 
 python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/depend:
-	cd /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO/bindings /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/python/TETRA_DMO/bindings /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/build/python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : python/TETRA_DMO/bindings/CMakeFiles/TETRA_DMO_docstrings.dir/depend
 

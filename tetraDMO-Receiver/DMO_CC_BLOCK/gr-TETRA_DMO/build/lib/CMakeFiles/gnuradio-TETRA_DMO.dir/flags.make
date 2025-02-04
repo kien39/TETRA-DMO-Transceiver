@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_THREAD_DYN_LINK -DFMT_LOCALE -DFMT_SHARED -DGR_MPLIB_GMP -DGR_PERFORMANCE_COUNTERS -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -Dgnuradio_TETRA_DMO_EXPORTS
 
-CXX_INCLUDES = -I/home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include
+CXX_INCLUDES = -I/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include
 
-CXX_FLAGS =  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -g -O2 -fPIC
+CXX_FLAGS =  -fvisibility=hidden -Wsign-compare -Wall -Wno-uninitialized -O3 -DNDEBUG -fPIC
 

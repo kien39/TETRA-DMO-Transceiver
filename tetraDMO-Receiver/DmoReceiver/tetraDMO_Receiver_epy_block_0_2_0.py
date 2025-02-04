@@ -16,7 +16,7 @@ parm  = np.array([0]*PRM_SIZE, dtype ='int16')     #/* Synthesis parameters   */
 serial= np.array([0]*SERIAL_SIZE, dtype ='int16')  #/* Serial stream          */
 
 class tetraSpDecoder(gr.basic_block):
-    lib = cdll.LoadLibrary('/home/von/new/tetraDMO-Receiver/codec/tetraSrcDecoderLib.so') # class level loading lib
+    lib = cdll.LoadLibrary('/home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/codec/tetraSrcDecoderLib.so') # class level loading lib
 
     # C-type corresponding to numpy array 
     ND_POINTER = np.ctypeslib.ndpointer(dtype=np.int16, 

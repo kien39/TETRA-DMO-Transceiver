@@ -1,7 +1,7 @@
 lib/CMakeFiles/gnuradio-TETRA_DMO.dir/common_lib.cc.o: \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/common_lib.cc \
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/common_lib.cc \
  /usr/include/stdc-predef.h \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/common_lib.h \
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/common_lib.h \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/iosfwd \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \

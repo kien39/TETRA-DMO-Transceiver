@@ -1,7 +1,7 @@
 lib/CMakeFiles/gnuradio-TETRA_DMO.dir/uplane.cc.o: \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/uplane.cc \
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/uplane.cc \
  /usr/include/stdc-predef.h \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/uplane.h \
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/uplane.h \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/iosfwd \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -179,5 +179,5 @@ lib/CMakeFiles/gnuradio-TETRA_DMO.dir/uplane.cc.o: \
  /usr/include/assert.h /usr/include/c++/11/iostream \
  /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
  /usr/include/c++/11/limits \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/common_lib.h \
- /home/von/new/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/Pdu.h
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/common_lib.h \
+ /home/von-ubuntu-pc/TETRA-DMO-Transceiver/tetraDMO-Receiver/DMO_CC_BLOCK/gr-TETRA_DMO/lib/../include/gnuradio/TETRA_DMO/Pdu.h
